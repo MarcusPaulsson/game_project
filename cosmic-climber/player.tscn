@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://1c0d3qsn1ngu"]
+
+[ext_resource type="Texture2D" uid="uid://bt1r1dngbhlb3" path="res://raw_images/spaceman.png" id="1_7m3cq"]
+[ext_resource type="Script" path="res://player.gd" id="1_v8kyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8prhe"]
+atlas = ExtResource("1_7m3cq")
+region = Rect2(48, 128, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kw1g8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8prhe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6wpd"]
+height = 46.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_v8kyp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+physics_interpolation_mode = 1
+sprite_frames = SubResource("SpriteFrames_kw1g8")
+frame_progress = 0.297768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_f6wpd")
