@@ -8,6 +8,7 @@ const MULTI_JUMP = 2 # Allow a maximum of 1 jumps (double jump)
 var acceleration_time = 0.2 # Time to reach max speed in seconds
 var deceleration_time = 0.14 # Time to fully stop
 var current_speed_x = 0.0 # Tracks current speed for the x-axis
+var canPick = true
 
 func _physics_process(delta: float) -> void:
 	# Add gravity

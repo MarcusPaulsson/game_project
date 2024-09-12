@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7vqxqiql5mn"]
+
+[ext_resource type="PackedScene" uid="uid://ch6hrkrh7cejg" path="res://level_1.tscn" id="1_ntmu6"]
+[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box.tscn" id="2_k0jp3"]
+
+[node name="game" type="Node2D"]
+
+[node name="levels" parent="." instance=ExtResource("1_ntmu6")]
+
+[node name="throw_object" parent="." instance=ExtResource("2_k0jp3")]
+position = Vector2(357, -131)

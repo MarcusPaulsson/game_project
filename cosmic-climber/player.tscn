@@ -35,3 +35,6 @@ frame_progress = 0.297768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_f6wpd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -28)
