@@ -9,6 +9,8 @@ var acceleration_time = 0.2 # Time to reach max speed in seconds
 var deceleration_time = 0.14 # Time to fully stop
 var current_speed_x = 0.0 # Tracks current speed for the x-axis
 var canPick = true
+@onready var boxpick_ref = $Marker2D # Reference to the object (boxpick_ref)
+
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
@@ -22,15 +24,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
 
-	# Reset jump when touching the floor
-	
-
 	# Handle horizontal movement with exponential easing
 	var direction = Input.get_axis("ui_left", "ui_right")
 
 	if direction != 0:
 		# Accelerate with an exponential curve toward max speed
 		current_speed_x = lerp(current_speed_x, direction * SPEED, delta / acceleration_time)
+		# Flip the boxpick_ref horizontally based on the direction
+		if current_speed_x > 0:
+			boxpick_ref.position.x = 20 # Facing right
+		elif current_speed_x < 0:
+			boxpick_ref.position.x = -20 # Facing left
 	else:
 		# Decelerate with an exponential curve toward 0
 		current_speed_x = lerp(current_speed_x, 0.0, delta / deceleration_time)

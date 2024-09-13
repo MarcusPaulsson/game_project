@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ch6hrkrh7cejg"]
+[gd_scene load_steps=33 format=3 uid="uid://ch6hrkrh7cejg"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgroundSpace_01.1.png" id="1_plxx5"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_fitwa"]
@@ -16,15 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://upqxlhwk0eg5" path="res://pickup_box.tscn" id="13_4cmxt"]
 [ext_resource type="PackedScene" uid="uid://byuh4usrn1v1f" path="res://death_area.tscn" id="14_tcqyl"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://flag.tscn" id="15_jk6hj"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i67y4"]
-texture = ExtResource("1_plxx5")
-separation = Vector2i(1024, 1024)
-texture_region_size = Vector2i(1024, 1024)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_hqtpi"]
-sources/0 = SubResource("TileSetAtlasSource_i67y4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_plxx5")
@@ -186,12 +177,6 @@ _data = {
 
 [node name="level_1" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(-1210, 303)
-tile_set = SubResource("TileSet_hqtpi")
-format = 2
-layer_0/name = "world"
-
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")
 rendering_quadrant_size = 128
@@ -214,7 +199,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="throw_object" parent="." instance=ExtResource("3_xhweh")]
-position = Vector2(350, -131)
+position = Vector2(-105, 89)
 
 [node name="TileMap_platforms" type="TileMap" parent="."]
 position = Vector2(11, 44)
@@ -252,3 +237,6 @@ shape = SubResource("WorldBoundaryShape2D_0fjek")
 
 [node name="goal_flag" parent="." instance=ExtResource("15_jk6hj")]
 position = Vector2(661, -946)
+
+[node name="throw_object2" parent="." instance=ExtResource("3_xhweh")]
+position = Vector2(118, -264)

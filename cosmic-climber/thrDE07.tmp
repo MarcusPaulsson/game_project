@@ -1,37 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6n6l11sn3aqi"]
+[gd_scene load_steps=5 format=3 uid="uid://b6n6l11sn3aqi"]
 
 [ext_resource type="Texture2D" uid="uid://bwmg5nw36mp1a" path="res://raw_images/boxes/obj_crate002.png" id="1_5jnj7"]
 [ext_resource type="Script" path="res://throw_box.gd" id="1_kng4e"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
-rough = true
-bounce = 0.19
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mod33"]
-size = Vector2(30, 30)
+size = Vector2(32, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
-size = Vector2(40, 41)
+size = Vector2(80, 36)
 
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_18r3m")
-can_sleep = false
 script = ExtResource("1_kng4e")
 
 [node name="ObjCrate002" type="Sprite2D" parent="."]
+position = Vector2(18, -17)
 scale = Vector2(0.348958, 0.34375)
 texture = ExtResource("1_5jnj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visibility_layer = 3
+position = Vector2(18, -17)
 shape = SubResource("RectangleShape2D_mod33")
 
 [node name="pick_up_area" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
+position = Vector2(20, -27)
 shape = SubResource("RectangleShape2D_kycw1")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
