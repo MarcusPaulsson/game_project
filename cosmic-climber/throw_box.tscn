@@ -11,7 +11,7 @@ bounce = 0.19
 size = Vector2(30, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
-size = Vector2(40, 41)
+size = Vector2(51, 41)
 
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
@@ -32,6 +32,7 @@ shape = SubResource("RectangleShape2D_mod33")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_kycw1")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

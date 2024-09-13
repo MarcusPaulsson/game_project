@@ -28,19 +28,17 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_pick_or_throw"):
 		# Check if the player is holding an item
 		if picked == true and get_node("../player").canPick == false:
-			print("Throwing item")
+			
 			picked = false # Release the item
 			# Get player node and velocity
 			var player = get_node("../player")
 			var player_velocity = player.velocity # Assuming player has a velocity property
+			self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir*30, 0)
 			
 			# Set initial throw direction based on player's facing direction
-			var throw_direction = player_velocity # Default throw vector
+			var throw_direction = player_velocity*1.5 # Default throw vector
 			# Apply player's velocity to the throw for added momentum
-			self.linear_velocity = throw_direction * 1.5
-			print(self.linear_velocity)
-			# Reset item position relative to the player's position slightly below
-			self.position = player.get_node("Marker2D").position
+			self.linear_velocity = throw_direction
 			# Allow player to pick up items again
 			player.canPick = true
 		# If not holding an item, check if the player can pick one up
@@ -48,6 +46,5 @@ func _input(event):
 			var bodies = $pick_up_area.get_overlapping_bodies()
 			for body in bodies:
 				if body.name == "player" and get_node("../player").canPick == true:
-					print("picked up item")
 					picked = true
 					get_node("../player").canPick = false
