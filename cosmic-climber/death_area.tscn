@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byuh4usrn1v1f"]
+[gd_scene load_steps=3 format=3 uid="uid://byuh4usrn1v1f"]
 
 [ext_resource type="Script" path="res://death_area.gd" id="1_xdxqn"]
+[ext_resource type="AudioStream" uid="uid://bqwaiil8lk2cn" path="res://raw_sounds/death_sound.mp3" id="2_p5qv7"]
 
 [node name="death_area" type="Area2D"]
 collision_layer = 2
@@ -8,8 +9,12 @@ collision_mask = 2
 script = ExtResource("1_xdxqn")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 3.0
 one_shot = true
 
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p5qv7")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="child_entered_tree" from="Timer" to="." method="_on_timer_child_entered_tree"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

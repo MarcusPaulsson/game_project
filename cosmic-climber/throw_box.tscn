@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6n6l11sn3aqi"]
+[gd_scene load_steps=7 format=3 uid="uid://b6n6l11sn3aqi"]
 
 [ext_resource type="Texture2D" uid="uid://bwmg5nw36mp1a" path="res://raw_images/boxes/obj_crate002.png" id="1_5jnj7"]
 [ext_resource type="Script" path="res://throw_box.gd" id="1_kng4e"]
+[ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_13ybe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
 rough = true
 bounce = 0.19
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mod33"]
-size = Vector2(30, 30)
+size = Vector2(34, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
 size = Vector2(51, 41)
@@ -32,7 +33,9 @@ shape = SubResource("RectangleShape2D_mod33")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_kycw1")
+
+[node name="pick_up_box" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_13ybe")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

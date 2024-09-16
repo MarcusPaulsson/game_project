@@ -1,10 +1,9 @@
 extends CharacterBody2D
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var num_jumps = 0
 const MULTI_JUMP = 2 # Allow a maximum of 1 jumps (double jump)
-
+var sound_on = true
 var acceleration_time = 0.2 # Time to reach max speed in seconds
 var deceleration_time = 0.14 # Time to fully stop
 var current_speed_x = 0.0 # Tracks current speed for the x-axis
@@ -12,14 +11,18 @@ var canPick = true
 var current_dir = 1 # 1 for right, -1 for left
 @onready var boxpick_ref = $Marker2D # Reference to the object (boxpick_ref)
 @onready var sprite = $AnimatedSprite2D
+@onready var jump_sound_1 = $jump1
+@onready var jump_sound_2 = $jump2
 
-
+var random = RandomNumberGenerator.new()
 func _ready() -> void:
 	# Initialization code here
 	# For example, setting default values or connecting signals
 	sprite.animation = "idle"  # Set default animation
 	sprite.play()  # Start playing the default animation if needed
-
+	if not sound_on:
+		jump_sound_1.volume_db = -80
+		jump_sound_2.volume_db = -80
 
 func _physics_process(delta: float) -> void:
 	
@@ -31,11 +34,12 @@ func _physics_process(delta: float) -> void:
 		# Scale the speed between a minimum and maximum value
 		# Normalize the speed to a range suitable for the animation
 		# 300 is the current max speed
-			var speed_factor = clamp(abs(velocity.x) / 300, 0.3, 10.0)
+			var speed_factor = clamp(abs(velocity.x) / 299, 0.3, 10.0)
 			sprite.speed_scale = speed_factor
 	
 	if not is_on_floor():
 		sprite.animation = "jump"
+		
 		velocity += get_gravity() * delta
 		
 		
@@ -47,7 +51,13 @@ func _physics_process(delta: float) -> void:
 	# Handle jumping
 	if Input.is_action_just_pressed("ui_accept") and num_jumps < MULTI_JUMP:
 		velocity.y = JUMP_VELOCITY
+		if not num_jumps:
+			jump_sound_2.play()
+		else:
+			jump_sound_1.play()
+			
 		num_jumps += 1
+		
 
 	# Handle horizontal movement with exponential easing
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -67,6 +77,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply the calculated horizontal speed to velocity
 	velocity.x = current_speed_x
-	sprite.play()
+	#sprite.play()
 	# Move and slide
 	move_and_slide()

@@ -5,7 +5,7 @@ var held_object = null
 
 # Reference to the collision shape node
 var collision_shape
-
+@onready var pick_up_box_sound = $pick_up_box
 # Called when the node is added to the scene
 func _ready() -> void:
 	# Get reference to the collision shape node
@@ -47,4 +47,6 @@ func _input(event):
 			for body in bodies:
 				if body.name == "player" and get_node("../player").canPick == true:
 					picked = true
+					pick_up_box_sound.play()
 					get_node("../player").canPick = false
+					break
