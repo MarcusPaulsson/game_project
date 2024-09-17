@@ -134,14 +134,14 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_32yj5"]
-size = Vector2(18, 44)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncks5"]
+size = Vector2(20, 50)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-8, -23)
 collision_layer = 2
-floor_stop_on_slope = false
-floor_block_on_wall = false
+slide_on_ceiling = false
+floor_constant_speed = true
 safe_margin = 0.001
 script = ExtResource("1_v8kyp")
 
@@ -153,11 +153,11 @@ sprite_frames = SubResource("SpriteFrames_32xvr")
 animation = &"running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 0)
-shape = SubResource("RectangleShape2D_32yj5")
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_ncks5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(47, -16)
+position = Vector2(64, -16)
 
 [node name="jump1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w11pc")

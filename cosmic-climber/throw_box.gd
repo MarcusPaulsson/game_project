@@ -2,18 +2,22 @@ extends RigidBody2D
 
 var picked = false
 var held_object = null
-
 # Reference to the collision shape node
 var collision_shape
 @onready var pick_up_box_sound = $pick_up_box
-# Called when the node is added to the scene
+var initial_position
+
 func _ready() -> void:
 	# Get reference to the collision shape node
 	collision_shape = $CollisionShape2D
+	
+	# Store the object's initial position when it spawns
+	initial_position = self.global_position
+	print(initial_position)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame
 func _process(delta: float) -> void:
-	if picked == true:
+	if picked:
 		# Make the item follow the player's position
 		self.position = get_node("../player/Marker2D").global_position
 		# Disable the collision shape when picked up
@@ -22,31 +26,29 @@ func _process(delta: float) -> void:
 		# Enable the collision shape when dropped
 		collision_shape.disabled = false
 
-
 func _input(event):
 	# Drop item if currently holding it
 	if Input.is_action_just_pressed("ui_pick_or_throw"):
 		# Check if the player is holding an item
-		if picked == true and get_node("../player").canPick == false:
-			
-			picked = false # Release the item
-			# Get player node and velocity
+		if picked and not get_node("../player").canPick:
+			picked = false  # Release the item
 			var player = get_node("../player")
-			var player_velocity = player.velocity # Assuming player has a velocity property
-			self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir*30, 0)
+			var player_velocity = player.velocity  # Assuming player has a velocity property
+			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * 35, 10)
 			
 			# Set initial throw direction based on player's facing direction
-			var throw_direction = player_velocity*1.5 # Default throw vector
+			var throw_direction = player_velocity * 1.5  # Default throw vector
 			# Apply player's velocity to the throw for added momentum
 			self.linear_velocity = throw_direction
 			# Allow player to pick up items again
 			player.canPick = true
-		# If not holding an item, check if the player can pick one up
 		else:
+			# Check if the player can pick up an item
 			var bodies = $pick_up_area.get_overlapping_bodies()
 			for body in bodies:
-				if body.name == "player" and get_node("../player").canPick == true:
+				if body.name == "player" and get_node("../player").canPick:
 					picked = true
+					self.rotation_degrees = 0
 					pick_up_box_sound.play()
 					get_node("../player").canPick = false
 					break
