@@ -7,6 +7,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":  # Only the player should trigger the timer
 		print("restart")
 		death_sound.play()
+		death_sound.volume_db = -1 #TODO
 		timer.start()
 		
 	elif body is RigidBody2D:

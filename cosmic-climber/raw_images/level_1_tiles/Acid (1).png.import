@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmpd34bg3jjtf"
-path="res://.godot/imported/flag_red_green.png-d4486ab0ecd6f636e30edc0cb27a6c66.ctex"
+uid="uid://qrv7if45pfiq"
+path="res://.godot/imported/Acid (1).png-b041cd4830bb1c1530a7784707d68c42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://raw_images/flag_red_green.png"
-dest_files=["res://.godot/imported/flag_red_green.png-d4486ab0ecd6f636e30edc0cb27a6c66.ctex"]
+source_file="res://raw_images/level_1_tiles/Acid (1).png"
+dest_files=["res://.godot/imported/Acid (1).png-b041cd4830bb1c1530a7784707d68c42.ctex"]
 
 [params]
 

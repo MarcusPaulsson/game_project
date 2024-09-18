@@ -157,7 +157,7 @@ position = Vector2(4, -4)
 shape = SubResource("RectangleShape2D_ncks5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(64, -16)
+position = Vector2(35, -16)
 
 [node name="jump1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w11pc")

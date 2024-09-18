@@ -10,16 +10,14 @@ var initial_position
 func _ready() -> void:
 	# Get reference to the collision shape node
 	collision_shape = $CollisionShape2D
-	
 	# Store the object's initial position when it spawns
 	initial_position = self.global_position
-	print(initial_position)
 
 # Called every frame
 func _process(delta: float) -> void:
 	if picked:
 		# Make the item follow the player's position
-		self.position = get_node("../player/Marker2D").global_position
+		self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir * 28, 10)
 		# Disable the collision shape when picked up
 		collision_shape.disabled = true
 	else:
@@ -29,12 +27,13 @@ func _process(delta: float) -> void:
 func _input(event):
 	# Drop item if currently holding it
 	if Input.is_action_just_pressed("ui_pick_or_throw"):
+		
 		# Check if the player is holding an item
 		if picked and not get_node("../player").canPick:
-			picked = false  # Release the item
+			
 			var player = get_node("../player")
 			var player_velocity = player.velocity  # Assuming player has a velocity property
-			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * 35, 10)
+			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * 28, 10)
 			
 			# Set initial throw direction based on player's facing direction
 			var throw_direction = player_velocity * 1.5  # Default throw vector
@@ -42,6 +41,10 @@ func _input(event):
 			self.linear_velocity = throw_direction
 			# Allow player to pick up items again
 			player.canPick = true
+			picked = false  # Release the item
+			return
+			
+			
 		else:
 			# Check if the player can pick up an item
 			var bodies = $pick_up_area.get_overlapping_bodies()

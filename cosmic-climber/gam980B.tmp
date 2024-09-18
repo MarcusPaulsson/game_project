@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://do7vqxqiql5mn"]
+[gd_scene load_steps=6 format=3 uid="uid://do7vqxqiql5mn"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_emrp1"]
 [ext_resource type="PackedScene" uid="uid://ch6hrkrh7cejg" path="res://levels/level_1.tscn" id="1_ntmu6"]
 [ext_resource type="AudioStream" uid="uid://dov5ti3032j2h" path="res://raw_sounds/astronaut-child-in-space-17141.mp3" id="2_s6dg2"]
+[ext_resource type="PackedScene" uid="uid://dxhstcdi4goql" path="res://levels/level_2.tscn" id="3_cfptk"]
+[ext_resource type="PackedScene" uid="uid://bjf8gl2gjouka" path="res://levels/level_3.tscn" id="4_v6idr"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_emrp1")
 
 [node name="level1" parent="." instance=ExtResource("1_ntmu6")]
+
+[node name="level2" parent="." instance=ExtResource("3_cfptk")]
+
+[node name="level3" parent="." instance=ExtResource("4_v6idr")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_s6dg2")
