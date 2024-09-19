@@ -133,7 +133,7 @@ sources/12 = SubResource("TileSetAtlasSource_jlow7")
 sources/13 = SubResource("TileSetAtlasSource_kl1pc")
 sources/14 = SubResource("TileSetAtlasSource_o7tr0")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7b11"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g3vp"]
 texture = ExtResource("19_c3tqo")
 texture_region_size = Vector2i(32, 32)
 7:0/0 = 0
@@ -306,7 +306,7 @@ texture_region_size = Vector2i(32, 32)
 2:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_x5tre"]
-sources/0 = SubResource("TileSetAtlasSource_t7b11")
+sources/0 = SubResource("TileSetAtlasSource_0g3vp")
 
 [node name="level_2" type="Node2D"]
 

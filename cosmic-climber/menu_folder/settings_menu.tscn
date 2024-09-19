@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3pimrct6iwbl"]
+
+[ext_resource type="Script" path="res://menu_folder/settings_menu.gd" id="1_drhjs"]
+[ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_sfx74"]
+
+[node name="Settings Menu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_drhjs")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(511, 512)
+texture = ExtResource("2_sfx74")
+offset = Vector2(1, 0)
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(1535, 512)
+texture = ExtResource("2_sfx74")
+offset = Vector2(1, 0)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 198.0
+offset_right = 703.0
+offset_bottom = 221.0
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 235.0
+offset_right = 700.0
+offset_bottom = 336.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="Volume on" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume ON"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Volume on" to="." method="_on_volume_on_toggled"]

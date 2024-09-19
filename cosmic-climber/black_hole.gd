@@ -17,12 +17,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	rotation_degrees += 360 * delta / 20  # Rotates the black hole sprite
+	
 	# If a character is rotating around the black hole, apply the rotation
 	if body_to_rotate != null:
 		rotate_around_point(body_to_rotate, position, 300, rotation_speed, delta, spiral_factor)
 		rotation_timer += delta
+		# Set the transparency factor
+		var transparent_factor = 0.5
+		# Get current level number
 		var current_level = self.get_parent().name
 		var level_number = int(current_level.substr(5, current_level.length() - 5)) # '5' is the index after 'level'
+		# Update the transparency using modulate.a (alpha value)
+		var new_alpha = body_to_rotate.modulate.a - (delta * transparent_factor)
+		body_to_rotate.modulate.a = clamp(new_alpha, 0, 1)  # Ensure alpha stays between 0 (fully transparent) and 1 (fully opaque)
 		# After rotating for the set time, change the scene
 		var level_string = "res://levels/level_"+str(level_number+1)+".tscn"
 		if rotation_timer >= rotation_time:
