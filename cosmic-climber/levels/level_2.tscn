@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dxhstcdi4goql"]
+[gd_scene load_steps=44 format=4 uid="uid://dxhstcdi4goql"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_xmybf"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_7wsmu"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bpvvkrgkie6j2" path="res://raw_images/level_1_tiles/KeySample.png" id="19_c3tqo"]
 [ext_resource type="PackedScene" uid="uid://wrsmgnk4ptcb" path="res://warning_sign.tscn" id="19_lkh5b"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="21_8sk2o"]
+[ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="22_3cvb6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_xmybf")
@@ -318,6 +319,7 @@ layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0
 
 [node name="player" parent="." instance=ExtResource("2_7wsmu")]
 z_index = 5
+position = Vector2(-7, -75)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-2, -2)
@@ -355,3 +357,5 @@ position = Vector2(-421, -231)
 
 [node name="black_hole" parent="." instance=ExtResource("21_8sk2o")]
 position = Vector2(506, -563)
+
+[node name="timer_clock" parent="." instance=ExtResource("22_3cvb6")]

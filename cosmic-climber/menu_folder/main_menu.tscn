@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cast1jxvgp6jk"]
+[gd_scene load_steps=4 format=3 uid="uid://cast1jxvgp6jk"]
 
 [ext_resource type="Script" path="res://menu_folder/main_menu.gd" id="1_aoq3h"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_yhdtb"]
+[ext_resource type="AudioStream" uid="uid://dov5ti3032j2h" path="res://raw_sounds/astronaut-child-in-space-17141.mp3" id="3_fujh8"]
 
 [node name="Start Menu" type="Control"]
 z_index = 1
@@ -67,9 +68,12 @@ offset_bottom = 221.0
 text = "COSMIC CLIMBER"
 horizontal_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fujh8")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/load game" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/how to play" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

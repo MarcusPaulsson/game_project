@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://lp4oxhvxlktn"]
+
+[ext_resource type="Script" path="res://timer.gd" id="1_ekwv5"]
+[ext_resource type="Texture2D" uid="uid://2xwtcqs5kbem" path="res://raw_images/boxes/obj_box005.png" id="2_etj3a"]
+
+[node name="timer_clock" type="Node2D"]
+script = ExtResource("1_ekwv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(105, 45)
+scale = Vector2(2.15625, 0.9375)
+texture = ExtResource("2_etj3a")
+
+[node name="TextEdit" type="TextEdit" parent="Sprite2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -3.0
+offset_right = -69.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+
+[connection signal="draw" from="Sprite2D/TextEdit" to="." method="_on_text_edit_draw"]
+[connection signal="text_set" from="Sprite2D/TextEdit" to="." method="_on_text_edit_text_set"]

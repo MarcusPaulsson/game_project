@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjf8gl2gjouka"]
+[gd_scene load_steps=7 format=3 uid="uid://defc5x8xoc143"]
 
-[ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_o5r66"]
-[ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_j5xe0"]
-[ext_resource type="PackedScene" uid="uid://byuh4usrn1v1f" path="res://death_area.tscn" id="4_k3era"]
-[ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="4_tut6x"]
+[ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_qfaco"]
+[ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_r141m"]
+[ext_resource type="PackedScene" uid="uid://byuh4usrn1v1f" path="res://death_area.tscn" id="3_6vy2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
-texture = ExtResource("1_o5r66")
+texture = ExtResource("1_qfaco")
 texture_region_size = Vector2i(1024, 1024)
 0:0/0 = 0
 
@@ -16,7 +15,7 @@ sources/0 = SubResource("TileSetAtlasSource_s5gao")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0fjek"]
 
-[node name="level_3" type="Node2D"]
+[node name="level_5" type="Node2D"]
 
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")
@@ -24,7 +23,7 @@ rendering_quadrant_size = 128
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, -65534, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -3, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -262142, 0, 0, -327678, 0, 0, -393214, 0, 0, -458750, 0, 0, -458751, 0, 0, -458752, 0, 0, -393217, 0, 0, -393218, 0, 0, -393219, 0, 0, -327683, 0, 0, -262147, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -327679, 0, 0, -327680, 0, 0, -262145, 0, 0, -262146, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0)
 
-[node name="player" parent="." instance=ExtResource("2_j5xe0")]
+[node name="player" parent="." instance=ExtResource("2_r141m")]
 z_index = 5
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -41,11 +40,9 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="death_area" parent="." instance=ExtResource("4_k3era")]
+[node name="death_area" parent="." instance=ExtResource("3_6vy2q")]
 position = Vector2(2, 420)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
 position = Vector2(-2, 2)
 shape = SubResource("WorldBoundaryShape2D_0fjek")
-
-[node name="timer_clock" parent="." instance=ExtResource("4_tut6x")]

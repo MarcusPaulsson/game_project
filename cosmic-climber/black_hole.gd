@@ -6,11 +6,17 @@ var rotation_speed = 5.0  # Speed of rotation in radians per second
 var rotation_time = 2.2  # Time in seconds to complete the rotation
 var rotation_timer = 0  # Timer to control rotation duration
 var spiral_factor = 1.7
+var profiles_config = ConfigFile.new()
+var current_profile = "profile1"  # Assuming you have a way to identify the current profile (e.g., from login or selection)
+var current_level = ""
+var level_number = ""
+@onready var timer_reference = get_node("../timer_clock")
+
 @onready var black_hole_sound = $black_hole_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var err = profiles_config.load("res://config_folder/profiles.cfg")
 
 
 
@@ -25,8 +31,6 @@ func _process(delta: float) -> void:
 		# Set the transparency factor
 		var transparent_factor = 0.5
 		# Get current level number
-		var current_level = self.get_parent().name
-		var level_number = int(current_level.substr(5, current_level.length() - 5)) # '5' is the index after 'level'
 		# Update the transparency using modulate.a (alpha value)
 		var new_alpha = body_to_rotate.modulate.a - (delta * transparent_factor)
 		body_to_rotate.modulate.a = clamp(new_alpha, 0, 1)  # Ensure alpha stays between 0 (fully transparent) and 1 (fully opaque)
@@ -35,6 +39,31 @@ func _process(delta: float) -> void:
 		if rotation_timer >= rotation_time:
 			get_tree().change_scene_to_file(level_string)
 
+# Function to update and save the player's level progress with time spent
+func update_player_level_progress(profile: String, level: String, time_spent: float) -> void:
+	# Get the current profile's data
+	var profile_data = profiles_config.get_value("profiles", profile)
+	
+	# Get the levels data or create a new dictionary if it doesn't exist
+	var levels_data = profile_data.get("levels", {})
+	
+	# Get or create the data for the current level
+	var level_data = levels_data.get(level, {"time_spent": 0})
+	
+	# Update the time spent for the current level (you can choose whether to add or overwrite the value)
+	level_data["time_spent"] = time_spent
+	
+	# Save the updated level data back to the levels dictionary
+	levels_data[level] = level_data
+	profile_data["levels"] = levels_data
+	
+	# Save the updated profile data back to the config
+	profiles_config.set_value("profiles", profile, profile_data)
+	
+	# Save the updated config file
+	var err = profiles_config.save("res://config_folder/profiles.cfg")
+	
+	
 # Function to rotate the character around a central point (e.g., the black hole)
 func rotate_around_point(body: Node2D, center: Vector2, radius: float, speed: float, delta: float, spiral_factor: float) -> void:
 	# Calculate the angle of rotation using the speed
@@ -60,14 +89,22 @@ func rotate_around_point(body: Node2D, center: Vector2, radius: float, speed: fl
 
 
 
+
 # When the character enters the black hole's area
 func _on_body_entered(body: Node2D) -> void:
 	# Only trigger the rotation once
+	var current_time = timer_reference.elapsed_time
+	print(current_time)
 	
 	if body.name == "player":
 		count += 1
 		black_hole_sound.play()
 		body.velocity.x = 0
 		body.velocity.y = 0
-		body_to_rotate = body  # trigger the character to rotate
+		body_to_rotate = body  # Trigger the character to rotate
 		rotation_timer = 0.0  # Reset the rotation timer
+		current_level = self.get_parent().name
+		level_number = int(current_level.substr(5, current_level.length() - 5)) # '5' is the index after 'level'
+		
+		# Update player's progress with time spent on the level
+		update_player_level_progress(current_profile, current_level, current_time)

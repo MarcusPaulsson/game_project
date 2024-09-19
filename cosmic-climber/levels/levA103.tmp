@@ -228,14 +228,15 @@ position = Vector2(-127, -26)
 [node name="throw_object" parent="." instance=ExtResource("3_xhweh")]
 position = Vector2(-127, 72)
 
-[node name="timer_clock" parent="." instance=ExtResource("16_00lvd")]
-position = Vector2(-527, -290)
-
 [node name="player" parent="." instance=ExtResource("2_fitwa")]
 z_index = 5
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(-2, -2)
+[node name="timer_clock" parent="player" instance=ExtResource("16_00lvd")]
+z_index = 3
+position = Vector2(-551, -303)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-10, -25)
 limit_left = -1000
 limit_right = 1000
 limit_bottom = 600

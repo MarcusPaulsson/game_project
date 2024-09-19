@@ -47,4 +47,9 @@ size_flags_stretch_ratio = 0.0
 layout_mode = 2
 text = "Volume ON"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Volume on" to="." method="_on_volume_on_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

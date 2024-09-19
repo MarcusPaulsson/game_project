@@ -1,7 +1,6 @@
 extends Control
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,4 +19,10 @@ func _on_volume_on_toggled(toggled_on: bool) -> void:
 		config.set_value("audio", "audio_ON", toggled_on)
 		config.save("res://config_folder/settings.cfg")
 		var music_ON = config.get_value("audio","audio_ON")
+		if music_ON:
+			
 		print(music_ON)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")

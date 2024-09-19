@@ -2,6 +2,9 @@ extends Control
 
 var GAME_STARTED = false
 var DEBUG = false
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if DEBUG:
@@ -23,6 +26,10 @@ func _on_load_game_pressed() -> void:  # load game button
 	GAME_STARTED = true
 	get_tree().change_scene_to_file("res://menu_folder/load_menu.tscn")
 	print("Pressed load game")
+
+
+func _on_leaderboard_pressed() -> void: # leaderboard button
+	get_tree().change_scene_to_file("res://menu_folder/leaderboard_menu.tscn")
 
 
 func _on_settings_pressed() -> void: # load game button
