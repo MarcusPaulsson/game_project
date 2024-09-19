@@ -7,9 +7,11 @@ var rotation_time = 2.2  # Time in seconds to complete the rotation
 var rotation_timer = 0  # Timer to control rotation duration
 var spiral_factor = 1.7
 var profiles_config = ConfigFile.new()
+
 var current_profile = "profile1"  # Assuming you have a way to identify the current profile (e.g., from login or selection)
 var current_level = ""
 var level_number = ""
+
 @onready var timer_reference = get_node("../timer_clock")
 
 @onready var black_hole_sound = $black_hole_sound
@@ -17,8 +19,10 @@ var level_number = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var err = profiles_config.load("res://config_folder/profiles.cfg")
-
-
+	var config_local = load("res://read_write_config.gd").new()
+	var content = config_local.load_local_data()
+	var current_profile = content[0]
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -42,6 +46,7 @@ func _process(delta: float) -> void:
 # Function to update and save the player's level progress with time spent
 func update_player_level_progress(profile: String, level: String, time_spent: float) -> void:
 	# Get the current profile's data
+	print(profile)
 	var profile_data = profiles_config.get_value("profiles", profile)
 	
 	# Get the levels data or create a new dictionary if it doesn't exist

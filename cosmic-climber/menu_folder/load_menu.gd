@@ -1,8 +1,7 @@
 extends Control
-
-var profiles_config = ConfigFile.new()
 @onready var container = $MarginContainer/VBoxContainer
-
+var profiles_config = ConfigFile.new()
+var config = load("res://read_write_config.gd").new()
 func _ready() -> void:
 	# Load profiles from the config file
 	var err = profiles_config.load("res://config_folder/profiles.cfg")
@@ -20,7 +19,6 @@ func _ready() -> void:
 		# Get the profile data
 		var profile_data = profiles_config.get_value("profiles", profile)
 		var profile_name = profile_data["name"]
-		
 		# Get the last level the player has completed
 		var levels_data = profile_data.get("levels", {})
 		var last_level = _get_last_level(levels_data)
@@ -30,8 +28,9 @@ func _ready() -> void:
 		menu_button.text = profile_name + " - Current Level: " + str(last_level)  # Add last level to the button text
 		
 		# Connect the pressed signal using a lambda to pass the last_level
-		menu_button.connect("pressed", Callable(self, "_on_menu_button_pressed").bind(last_level))
 		
+		menu_button.connect("pressed", Callable(self, "_on_menu_button_pressed").bind(last_level, profile))
+
 		# Add the MenuButton to the container
 		container.add_child(menu_button)
 
@@ -46,10 +45,11 @@ func _get_last_level(levels_data: Dictionary) -> int:
 	return last_level_num
 
 # Function that is called when a MenuButton is pressed
-func _on_menu_button_pressed(profile_level: int) -> void:
+func _on_menu_button_pressed(profile_level: int, profile_profile: String) -> void:
 	# Construct the level scene string based on the last completed level
 	var level_scene = "res://levels/level_" + str(profile_level) + ".tscn"
 	# Change to the appropriate level scene
+	config.save_local_data(profile_profile,-1,-1,-1)
 	get_tree().change_scene_to_file(level_scene)
 
 # Function that is called when the back button is pressed
