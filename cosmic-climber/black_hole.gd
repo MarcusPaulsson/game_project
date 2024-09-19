@@ -7,8 +7,7 @@ var rotation_time = 2.2  # Time in seconds to complete the rotation
 var rotation_timer = 0  # Timer to control rotation duration
 var spiral_factor = 1.7
 var profiles_config = ConfigFile.new()
-
-var current_profile = "profile1"  # Assuming you have a way to identify the current profile (e.g., from login or selection)
+var current_profile
 var current_level = ""
 var level_number = ""
 
@@ -20,8 +19,8 @@ var level_number = ""
 func _ready() -> void:
 	var err = profiles_config.load("res://config_folder/profiles.cfg")
 	var config_local = load("res://read_write_config.gd").new()
-	var content = config_local.load_local_data()
-	var current_profile = content[0]
+	var content = config_local.load_local_data()[0]
+	current_profile = content
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,13 +47,10 @@ func update_player_level_progress(profile: String, level: String, time_spent: fl
 	# Get the current profile's data
 	print(profile)
 	var profile_data = profiles_config.get_value("profiles", profile)
-	
 	# Get the levels data or create a new dictionary if it doesn't exist
 	var levels_data = profile_data.get("levels", {})
-	
 	# Get or create the data for the current level
 	var level_data = levels_data.get(level, {"time_spent": 0})
-	
 	# Update the time spent for the current level (you can choose whether to add or overwrite the value)
 	level_data["time_spent"] = time_spent
 	
@@ -109,7 +105,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body_to_rotate = body  # Trigger the character to rotate
 		rotation_timer = 0.0  # Reset the rotation timer
 		current_level = self.get_parent().name
+		print(current_level)
 		level_number = int(current_level.substr(5, current_level.length() - 5)) # '5' is the index after 'level'
 		
 		# Update player's progress with time spent on the level
-		update_player_level_progress(current_profile, current_level, current_time)
+		update_player_level_progress(current_profile, "level_"+str(level_number), current_time)

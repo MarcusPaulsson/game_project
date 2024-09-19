@@ -18,9 +18,7 @@ func load_local_data():
 	print("Total Time Played:", total_time_played)
 	print("Sound Volume:", sound_volume)
 	print("High Score:", high_score)
-	
 	# Store them in your game's global state if needed
-	print(current_player)
 	return [current_player, total_time_played, sound_volume, high_score]
 
 # Function to save global variables to the .cfg file

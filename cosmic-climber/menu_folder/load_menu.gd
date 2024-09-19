@@ -21,7 +21,7 @@ func _ready() -> void:
 		var profile_name = profile_data["name"]
 		# Get the last level the player has completed
 		var levels_data = profile_data.get("levels", {})
-		var last_level = _get_last_level(levels_data)
+		var last_level = _get_last_level(levels_data) +1
 		
 		# Create a new MenuButton for the profile
 		var menu_button = MenuButton.new()
@@ -41,7 +41,10 @@ func _get_last_level(levels_data: Dictionary) -> int:
 		return 1  # Default to level 1 if no levels found
 	levels_keys.sort()  # Sort levels based on their keys
 	var last_level_key = levels_keys.back()  # Get the last key (e.g., "level_3")
+	print("here")
+	print(last_level_key)
 	var last_level_num = int(last_level_key.split("_")[1])  # Extract the level number
+	
 	return last_level_num
 
 # Function that is called when a MenuButton is pressed
