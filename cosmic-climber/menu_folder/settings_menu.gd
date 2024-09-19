@@ -19,8 +19,7 @@ func _on_volume_on_toggled(toggled_on: bool) -> void:
 		config.set_value("audio", "audio_ON", toggled_on)
 		config.save("res://config_folder/settings.cfg")
 		var music_ON = config.get_value("audio","audio_ON")
-		if music_ON:
-			
+		
 		print(music_ON)
 
 
