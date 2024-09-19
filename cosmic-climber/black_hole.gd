@@ -7,7 +7,7 @@ var rotation_time = 2.2  # Time in seconds to complete the rotation
 var rotation_timer = 0  # Timer to control rotation duration
 var spiral_factor = 1.7
 @onready var black_hole_sound = $black_hole_sound
-@onready var game_placeholder = get_node("../../../game")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -21,8 +21,10 @@ func _process(delta: float) -> void:
 	if body_to_rotate != null:
 		rotate_around_point(body_to_rotate, position, 300, rotation_speed, delta, spiral_factor)
 		rotation_timer += delta
+		var current_level = self.get_parent().name
+		var level_number = int(current_level.substr(5, current_level.length() - 5)) # '5' is the index after 'level'
 		# After rotating for the set time, change the scene
-		var level_string = "res://levels/level_"+str(2)+".tscn"
+		var level_string = "res://levels/level_"+str(level_number+1)+".tscn"
 		if rotation_timer >= rotation_time:
 			get_tree().change_scene_to_file(level_string)
 
