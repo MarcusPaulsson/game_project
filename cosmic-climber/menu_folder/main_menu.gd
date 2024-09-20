@@ -1,7 +1,10 @@
 extends Control
 
 var GAME_STARTED = false
+
+# Debug variables
 var DEBUG = false
+var DEBUG_level = 5
 
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene
 @onready var name_input = $AcceptDialog/LineEdit  # The input field inside the dialog for entering the name
@@ -10,7 +13,7 @@ var profiles_config = ConfigFile.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if DEBUG:
-		get_tree().change_scene_to_file("res://game.tscn")
+		get_tree().change_scene_to_file("res://levels/level_"+str(DEBUG_level)+".tscn")
 	var err = profiles_config.load("res://config_folder/profiles.cfg")
 	name_dialog["visible"] = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.

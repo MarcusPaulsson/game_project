@@ -248,3 +248,10 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("16_tyc1q")
+
+[node name="back" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 264.0
+offset_right = 563.0
+offset_bottom = 295.0
+text = "Back to Menu"
