@@ -69,10 +69,7 @@ func _on_accept_dialog_confirmed() -> void:
 	
 	# Proceed to the game scene after the player has entered a name
 	GAME_STARTED = true
-	
-	
-	
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://levels/level_1.tscn")
 	
 	
 func update_player_level_progress(profile: String, level: String, time_spent: float) -> void:

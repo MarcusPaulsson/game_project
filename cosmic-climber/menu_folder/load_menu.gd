@@ -21,7 +21,7 @@ func _ready() -> void:
 		var profile_name = profile_data["name"]
 		# Get the last level the player has completed
 		var levels_data = profile_data.get("levels", {})
-		var last_level = _get_last_level(levels_data) +1
+		var last_level = _get_last_level(levels_data) 
 		
 		# Create a new MenuButton for the profile
 		var menu_button = MenuButton.new()
