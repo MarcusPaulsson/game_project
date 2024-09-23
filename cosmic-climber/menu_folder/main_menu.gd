@@ -4,7 +4,7 @@ var GAME_STARTED = false
 
 # Debug variables
 var DEBUG = false
-var DEBUG_level = 5
+var DEBUG_level = 6
 
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene
 @onready var name_input = $AcceptDialog/LineEdit  # The input field inside the dialog for entering the name
@@ -14,7 +14,7 @@ var profiles_config = ConfigFile.new()
 func _ready() -> void:
 	if DEBUG:
 		get_tree().change_scene_to_file("res://levels/level_"+str(DEBUG_level)+".tscn")
-	var err = profiles_config.load("res://config_folder/profiles.cfg")
+	var err = profiles_config.load("user://config_folder/profiles.cfg")
 	name_dialog["visible"] = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -88,7 +88,7 @@ func update_player_level_progress(profile: String, level: String, time_spent: fl
 	# Save the updated profile data back to the config
 	profiles_config.set_value("profiles", profile, profile_data)
 	# Save the updated config file
-	var err = profiles_config.save("res://config_folder/profiles.cfg")
+	var err = profiles_config.save("user://config_folder/profiles.cfg")
 	if err != OK:
 		print("Error saving profiles config file!")
 	else:

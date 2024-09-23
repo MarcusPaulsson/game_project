@@ -17,7 +17,7 @@ var level_number = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var err = profiles_config.load("res://config_folder/profiles.cfg")
+	var err = profiles_config.load("user://config_folder/profiles.cfg")
 	var config_local = load("res://read_write_config.gd").new()
 	var content = config_local.load_local_data()[0]
 	current_profile = content
@@ -62,7 +62,7 @@ func update_player_level_progress(profile: String, level: String, time_spent: fl
 	profiles_config.set_value("profiles", profile, profile_data)
 	
 	# Save the updated config file
-	var err = profiles_config.save("res://config_folder/profiles.cfg")
+	var err = profiles_config.save("user://config_folder/profiles.cfg")
 	
 	
 # Function to rotate the character around a central point (e.g., the black hole)

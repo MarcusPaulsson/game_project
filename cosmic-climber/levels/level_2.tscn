@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://wrsmgnk4ptcb" path="res://warning_sign.tscn" id="19_lkh5b"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="21_8sk2o"]
 [ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="22_3cvb6"]
-[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box.tscn" id="23_3nvg0"]
+[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="23_3nvg0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_xmybf")

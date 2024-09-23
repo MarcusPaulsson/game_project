@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6n6l11sn3aqi"]
 
-[ext_resource type="Texture2D" uid="uid://bwmg5nw36mp1a" path="res://raw_images/boxes/obj_crate002.png" id="1_5jnj7"]
-[ext_resource type="Script" path="res://throw_box.gd" id="1_kng4e"]
-[ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_13ybe"]
+[ext_resource type="Script" path="res://throw_box.gd" id="1_t2ga1"]
+[ext_resource type="Texture2D" uid="uid://d3e6r76vyfecg" path="res://raw_images/assets/block2.svg" id="2_w2xnq"]
+[ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_hmsrp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
 rough = true
@@ -19,11 +19,12 @@ collision_mask = 3
 mass = 0.005
 physics_material_override = SubResource("PhysicsMaterial_18r3m")
 can_sleep = false
-script = ExtResource("1_kng4e")
+script = ExtResource("1_t2ga1")
 
 [node name="ObjCrate002" type="Sprite2D" parent="."]
-scale = Vector2(0.348958, 0.34375)
-texture = ExtResource("1_5jnj7")
+position = Vector2(1.54972e-06, 2.38419e-07)
+scale = Vector2(0.425, 0.533333)
+texture = ExtResource("2_w2xnq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 3
@@ -39,7 +40,7 @@ position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_kycw1")
 
 [node name="pick_up_box" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_13ybe")
+stream = ExtResource("3_hmsrp")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="pick_up_timer" to="." method="_on_pick_up_timer_timeout"]

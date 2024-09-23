@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://qepaua4dg5jc"]
+
+[ext_resource type="Script" path="res://throw_box.gd" id="1_gf17v"]
+[ext_resource type="Texture2D" uid="uid://djys7qxow2phj" path="res://raw_images/assets/block1.svg" id="2_ojqme"]
+[ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_gqf54"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mod33"]
+size = Vector2(34, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
+size = Vector2(58, 36.5)
+
+[node name="throw_object" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 0.005
+physics_material_override = SubResource("PhysicsMaterial_18r3m")
+can_sleep = false
+script = ExtResource("1_gf17v")
+
+[node name="ObjCrate002" type="Sprite2D" parent="."]
+position = Vector2(1.54972e-06, 2.38419e-07)
+scale = Vector2(0.425, 0.533333)
+texture = ExtResource("2_ojqme")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_mod33")
+
+[node name="pick_up_timer" type="Timer" parent="."]
+
+[node name="pick_up_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_kycw1")
+
+[node name="pick_up_box" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gqf54")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="pick_up_timer" to="." method="_on_pick_up_timer_timeout"]

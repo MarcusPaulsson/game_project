@@ -1,3 +1,6 @@
+#Script for all kind of pick_up boxes!!!
+
+
 extends RigidBody2D
 
 var picked = false

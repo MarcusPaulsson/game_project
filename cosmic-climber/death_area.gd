@@ -14,12 +14,13 @@ func _on_body_entered(body: Node2D) -> void:
 		timer.start()  # Start the timer (no arguments needed)
 		
 	elif body is RigidBody2D:
-		body.global_position = body.initial_position
-		print(body.global_position) # TODO Fix bug where this is needed
-		body.linear_velocity = Vector2()
-		body.angular_velocity = 0
-		body.rotation = 0
-		body.position = body.initial_position
+		pass
+		#body.global_position = body.initial_position
+		#print(body.global_position) # TODO Fix bug where this is needed
+		#body.linear_velocity = Vector2()
+		#body.angular_velocity = 0
+		#body.rotation = 0
+		#body.position = body.initial_position
 
 func _on_timer_timeout() -> void:
 	if body_to_reset != null:

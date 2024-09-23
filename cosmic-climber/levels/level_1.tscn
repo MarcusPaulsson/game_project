@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://ch6hrkrh7cejg"]
+[gd_scene load_steps=35 format=4 uid="uid://ch6hrkrh7cejg"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_plxx5"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_fitwa"]
 [ext_resource type="Texture2D" uid="uid://clxxxkxc1bevb" path="res://raw_images/PNG/Green/Default/bar_round_gloss_large.png" id="3_q6uxd"]
-[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box.tscn" id="3_xhweh"]
+[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="3_xhweh"]
 [ext_resource type="Texture2D" uid="uid://cp5jkb82w4axu" path="res://raw_images/PNG/Green/Default/bar_round_gloss_large_l.png" id="4_ydshy"]
 [ext_resource type="Texture2D" uid="uid://bsbpiy27y2k2p" path="res://raw_images/PNG/Green/Default/bar_round_gloss_large_m.png" id="5_0or55"]
 [ext_resource type="Texture2D" uid="uid://dhgiegdce57cw" path="res://raw_images/PNG/Green/Default/bar_round_gloss_large_r.png" id="6_heip3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="16_00lvd"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="16_44dvb"]
 [ext_resource type="Script" path="res://levels/camera_2d.gd" id="16_tyc1q"]
+[ext_resource type="PackedScene" uid="uid://cnk67cgxem6r2" path="res://throw_box_wood_2.tscn" id="18_4bfbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_plxx5")
@@ -255,3 +256,6 @@ offset_top = 264.0
 offset_right = 563.0
 offset_bottom = 295.0
 text = "Back to Menu"
+
+[node name="throw_object4" parent="." instance=ExtResource("18_4bfbs")]
+position = Vector2(-349, 70)

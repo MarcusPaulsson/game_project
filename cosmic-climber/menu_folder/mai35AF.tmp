@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cast1jxvgp6jk"]
+[gd_scene load_steps=6 format=3 uid="uid://cast1jxvgp6jk"]
 
 [ext_resource type="Script" path="res://menu_folder/main_menu.gd" id="1_aoq3h"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_yhdtb"]
+[ext_resource type="Script" path="res://menu_folder/title.gd" id="3_bf1s5"]
 [ext_resource type="AudioStream" uid="uid://dov5ti3032j2h" path="res://raw_sounds/astronaut-child-in-space-17141.mp3" id="3_fujh8"]
-[ext_resource type="FontFile" uid="uid://bijxkn1g1xcqu" path="res://raw_font/magnetar.ttf" id="3_nb7jm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7fal"]
 
 [node name="Start Menu" type="Control"]
 z_index = 1
@@ -38,43 +40,38 @@ size_flags_stretch_ratio = 0.0
 
 [node name="start game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "New Game"
 
 [node name="load game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "Load Game"
 
 [node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "Leaderboard"
 
 [node name="how to play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "How To Play"
 
 [node name="settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "Settings"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nb7jm")
 text = "Quit Game"
 
 [node name="title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 428.0
-offset_top = 190.0
-offset_right = 749.0
-offset_bottom = 273.0
-theme_override_fonts/font = ExtResource("3_nb7jm")
-text = "COMSIC CLIMBER"
+offset_left = 469.0
+offset_top = 198.0
+offset_right = 678.0
+offset_bottom = 221.0
+text = "COSMIC CLIMBER"
+label_settings = SubResource("LabelSettings_p7fal")
 horizontal_alignment = 1
+script = ExtResource("3_bf1s5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fujh8")
@@ -93,7 +90,6 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 242.0
 offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("3_nb7jm")
 placeholder_text = "Insert name..."
 alignment = 1
 

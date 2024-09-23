@@ -4,7 +4,7 @@ var profiles_config = ConfigFile.new()
 var config = load("res://read_write_config.gd").new()
 func _ready() -> void:
 	# Load profiles from the config file
-	var err = profiles_config.load("res://config_folder/profiles.cfg")
+	var err = profiles_config.load("user://config_folder/profiles.cfg")
 	
 	# Check if the file was loaded correctly
 	if err != OK:

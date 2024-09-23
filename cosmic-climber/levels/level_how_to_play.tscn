@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bkm7fnrdv62sa" path="res://raw_images/level_1_tiles/Tile (9).png" id="17_60dkg"]
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="18_h20no"]
 [ext_resource type="Texture2D" uid="uid://bpvvkrgkie6j2" path="res://raw_images/level_1_tiles/KeySample.png" id="19_npfrp"]
-[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box.tscn" id="21_55iib"]
+[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="21_55iib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_wwcqd")

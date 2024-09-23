@@ -2,7 +2,7 @@ var global_config = ConfigFile.new()
 
 # Function to load global variables from the .cfg file
 func load_local_data():
-	var err = global_config.load("res://config_folder/local.cfg")
+	var err = global_config.load("user://config_folder/local.cfg")
 	if err != OK:
 		print("Error loading config file")
 		return
@@ -23,7 +23,7 @@ func load_local_data():
 
 # Function to save global variables to the .cfg file
 func save_local_data(current_player: String, total_time_played: int, sound_volume: float, high_score: int):
-	global_config.load("res://config_folder/local.cfg")
+	global_config.load("user://config_folder/local.cfg")
 	# Save global variables
 	global_config.set_value("local", "current_player", current_player)
 	if total_time_played>=0:
@@ -34,6 +34,6 @@ func save_local_data(current_player: String, total_time_played: int, sound_volum
 		global_config.set_value("local", "high_score", high_score)
 	
 	# Save the config file
-	var err = global_config.save("res://config_folder/local.cfg")
+	var err = global_config.save("user://config_folder/local.cfg")
 	if err != OK:
 		print("Error saving config file")
