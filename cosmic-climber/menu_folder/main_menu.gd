@@ -3,7 +3,7 @@ extends Control
 var GAME_STARTED = false
 
 # Debug variables
-var DEBUG = false
+var DEBUG = true
 var DEBUG_level = 6
 
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene

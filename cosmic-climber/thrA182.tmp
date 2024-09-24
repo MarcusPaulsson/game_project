@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnk67cgxem6r2"]
+
+[ext_resource type="Script" path="res://throw_box.gd" id="1_nmcoc"]
+[ext_resource type="Texture2D" uid="uid://d3e6r76vyfecg" path="res://raw_images/assets/block2.svg" id="2_iyeda"]
+[ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_2xerh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mod33"]
+size = Vector2(34, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
+size = Vector2(58, 67.25)
+
+[node name="throw_object" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 0.005
+physics_material_override = SubResource("PhysicsMaterial_18r3m")
+can_sleep = false
+script = ExtResource("1_nmcoc")
+
+[node name="ObjCrate003" type="Sprite2D" parent="."]
+position = Vector2(1.35525e-20, -32)
+scale = Vector2(0.425, 0.533333)
+texture = ExtResource("2_iyeda")
+
+[node name="ObjCrate002" type="Sprite2D" parent="."]
+position = Vector2(2.27374e-13, -13)
+scale = Vector2(0.425, 0.533333)
+texture = ExtResource("2_iyeda")
+region_enabled = true
+region_rect = Rect2(0, 9, 80, 37)
+
+[node name="ObjCrate004" type="Sprite2D" parent="."]
+position = Vector2(4.81482e-35, 3)
+scale = Vector2(0.425, 0.533333)
+texture = ExtResource("2_iyeda")
+region_enabled = true
+region_rect = Rect2(0, 11, 80, 49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_mod33")
+
+[node name="pick_up_timer" type="Timer" parent="."]
+
+[node name="pick_up_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
+position = Vector2(-1, -17.375)
+shape = SubResource("RectangleShape2D_kycw1")
+
+[node name="pick_up_box" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2xerh")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="pick_up_timer" to="." method="_on_pick_up_timer_timeout"]
