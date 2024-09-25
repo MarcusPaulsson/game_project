@@ -8,6 +8,11 @@ var acceleration_time = 0.2 # Time to reach max speed in seconds
 var deceleration_time = 0.14 # Time to fully stop
 var current_speed_x = 0.0 # Tracks current speed for the x-axis
 var canPick = true
+
+var previous_global_position: Vector2
+var current_global_speed: float = 0.0
+
+
 var current_dir = 1 # 1 for right, -1 for left
 @onready var boxpick_ref = $Marker2D # Reference to the object (boxpick_ref)
 @onready var sprite = $AnimatedSprite2D
@@ -16,6 +21,7 @@ var current_dir = 1 # 1 for right, -1 for left
 
 var random = RandomNumberGenerator.new()
 func _ready() -> void:
+	previous_global_position = self.global_position
 	# Initialization code here
 	# For example, setting default values or connecting signals
 	sprite.animation = "idle"  # Set default animation
@@ -25,10 +31,12 @@ func _ready() -> void:
 		jump_sound_2.volume_db = -80
 
 func _physics_process(delta: float) -> void:
+	current_global_speed = previous_global_position.distance_to(self.global_position)/delta
+	previous_global_position = self.global_position
 	# Add gravity
 	if is_on_floor():
 		num_jumps = 0
-		if abs(current_speed_x) > 10:
+		if abs(current_global_speed) > 10:
 			sprite.animation = "running"
 		# Scale the speed between a minimum and maximum value
 		# Normalize the speed to a range suitable for the animation
@@ -40,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		sprite.animation = "jump"
 		velocity += get_gravity() * delta
 
-	if abs(current_speed_x) < 10:
+	if abs(current_global_speed) < 10:
 		sprite.animation = "idle"
 		sprite.speed_scale = 1
 

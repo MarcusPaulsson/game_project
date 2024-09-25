@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://defc5x8xoc143"]
+[gd_scene load_steps=42 format=4 uid="uid://defc5x8xoc143"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_qfaco"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_r141m"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="19_s02sg"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="20_0x2fy"]
 [ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="21_xxcs5"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_ugych"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_qfaco")
@@ -201,5 +202,24 @@ position = Vector2(138, -624)
 [node name="black_hole" parent="." instance=ExtResource("20_0x2fy")]
 position = Vector2(-374, -749)
 
-[node name="timer_clock" parent="." instance=ExtResource("21_xxcs5")]
-position = Vector2(-563, -328)
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="timer_clock" parent="HUD" instance=ExtResource("21_xxcs5")]
+position = Vector2(446, 237)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
+text = "Back to Menu"
+script = ExtResource("22_ugych")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

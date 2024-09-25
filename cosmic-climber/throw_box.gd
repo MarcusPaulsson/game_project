@@ -32,10 +32,6 @@ func _process(delta: float) -> void:
 		if str(box_type.texture) == metal_type:
 			pass
 
-			
-			
-
-					
 				
 
 func _input(event):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://ch6hrkrh7cejg"]
+[gd_scene load_steps=36 format=4 uid="uid://ch6hrkrh7cejg"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_plxx5"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_fitwa"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="16_44dvb"]
 [ext_resource type="Script" path="res://levels/camera_2d.gd" id="16_tyc1q"]
 [ext_resource type="PackedScene" uid="uid://cnk67cgxem6r2" path="res://throw_box_wood_2.tscn" id="18_4bfbs"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="19_s5dva"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_plxx5")
@@ -229,9 +230,6 @@ position = Vector2(-127, -26)
 [node name="throw_object" parent="." instance=ExtResource("3_xhweh")]
 position = Vector2(-127, 72)
 
-[node name="timer_clock" parent="." instance=ExtResource("16_00lvd")]
-position = Vector2(-527, -290)
-
 [node name="player" parent="." instance=ExtResource("2_fitwa")]
 z_index = 5
 
@@ -250,12 +248,27 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("16_tyc1q")
 
-[node name="back" type="Button" parent="."]
-offset_left = 449.0
-offset_top = 264.0
-offset_right = 563.0
-offset_bottom = 295.0
-text = "Back to Menu"
-
 [node name="throw_object4" parent="." instance=ExtResource("18_4bfbs")]
 position = Vector2(-349, 70)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="timer_clock" parent="HUD" instance=ExtResource("16_00lvd")]
+position = Vector2(446, 237)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
+text = "Back to Menu"
+script = ExtResource("19_s5dva")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

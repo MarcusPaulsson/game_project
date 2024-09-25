@@ -11,7 +11,7 @@ var current_profile
 var current_level = ""
 var level_number = ""
 
-@onready var timer_reference = get_node("../timer_clock")
+@onready var timer_reference = $"../HUD/timer_clock"
 
 @onready var black_hole_sound = $black_hole_sound
 

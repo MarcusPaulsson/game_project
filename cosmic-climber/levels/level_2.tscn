@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dxhstcdi4goql"]
+[gd_scene load_steps=46 format=4 uid="uid://dxhstcdi4goql"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_xmybf"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_7wsmu"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="21_8sk2o"]
 [ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="22_3cvb6"]
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="23_3nvg0"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="24_cvx0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_xmybf")
@@ -359,9 +360,6 @@ position = Vector2(-421, -231)
 [node name="black_hole" parent="." instance=ExtResource("21_8sk2o")]
 position = Vector2(-205, -394)
 
-[node name="timer_clock" parent="." instance=ExtResource("22_3cvb6")]
-position = Vector2(-472, -255)
-
 [node name="throw_object" parent="." instance=ExtResource("23_3nvg0")]
 position = Vector2(430, -81)
 
@@ -380,9 +378,24 @@ position = Vector2(394, -81)
 [node name="throw_object2" parent="." instance=ExtResource("23_3nvg0")]
 position = Vector2(358, -81)
 
-[node name="back" type="Button" parent="."]
-offset_left = 450.0
-offset_top = 213.0
-offset_right = 564.0
-offset_bottom = 244.0
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="timer_clock" parent="HUD" instance=ExtResource("22_3cvb6")]
+position = Vector2(446, 237)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
 text = "Back to Menu"
+script = ExtResource("24_cvx0m")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bjf8gl2gjouka"]
+[gd_scene load_steps=42 format=4 uid="uid://bjf8gl2gjouka"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_o5r66"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_j5xe0"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="19_qranc"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="20_mtq4s"]
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="21_pd5wh"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_18apx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_o5r66")
@@ -166,9 +167,6 @@ position = Vector2(2, 420)
 position = Vector2(-2, 2)
 shape = SubResource("WorldBoundaryShape2D_0fjek")
 
-[node name="timer_clock" parent="." instance=ExtResource("4_tut6x")]
-position = Vector2(-662, -158)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(11, 173)
 scale = Vector2(0.125, 0.125)
@@ -192,3 +190,25 @@ position = Vector2(107, 40)
 
 [node name="throw_object5" parent="." instance=ExtResource("21_pd5wh")]
 position = Vector2(106, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="timer_clock" parent="HUD" instance=ExtResource("4_tut6x")]
+position = Vector2(446, 237)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
+text = "Back to Menu"
+script = ExtResource("22_18apx")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]
