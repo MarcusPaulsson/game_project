@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	
+	self.gravity_scale = 1.0
 	if picked:
 		# Make the item follow the player's position
 		self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir * 28, 10)

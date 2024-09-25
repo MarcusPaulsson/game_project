@@ -8,7 +8,6 @@ var acceleration_time = 0.2 # Time to reach max speed in seconds
 var deceleration_time = 0.14 # Time to fully stop
 var current_speed_x = 0.0 # Tracks current speed for the x-axis
 var canPick = true
-var currentProfile = "profile1"
 var current_dir = 1 # 1 for right, -1 for left
 @onready var boxpick_ref = $Marker2D # Reference to the object (boxpick_ref)
 @onready var sprite = $AnimatedSprite2D

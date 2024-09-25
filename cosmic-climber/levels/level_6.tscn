@@ -170,12 +170,12 @@ shape = SubResource("WorldBoundaryShape2D_0fjek")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(11, 173)
 scale = Vector2(0.125, 0.125)
-tile_map_data = PackedByteArray("AAABAPz/DAAAAAAAAAAAAPz/DAAAAAAAAAD///z/DAAAAAAAAAD+//z/DAAAAAAAAAD9//z/CwAAAAAAAAACAPD/CwAAAAAAAAADAPD/CwAAAAAAAAAFAPD/CwAAAAAAAAAGAPD/CwAAAAAAAAAHAPD/CwAAAAAAAAAIAPD/CwAAAAAAAAAJAPD/CwAAAAAAAAABAPD/CwAAAAAAAAD///D/CwAAAAAAAAD+//D/CwAAAAAAAAD9//D/CwAAAAAAAAD8//D/CwAAAAAAAAD7//D/CwAAAAAAAAD6//D/CwAAAAAAAAD0//r/DAAAAAAAAAD1//r/DAAAAAAAAAD2//r/DAAAAAAAAAD3//r/DAAAAAAAAAD5//D/DAAAAAAAAAD4//D/DAAAAAAAAAD3//D/DAAAAAAAAAD2//D/DAAAAAAAAAD1//D/DAAAAAAAAAD0//D/DAAAAAAAAADz//D/DAAAAAAAAADy//D/DAAAAAAAAADx//D/DAAAAAAAAADw//D/DAAAAAAAAADv//D/DAAAAAAAAADu//D/DAAAAAAAAAAKAPD/DAAAAAAAAAALAPD/DAAAAAAAAAAMAPD/DAAAAAAAAAACAPz/DAAAAAAAAAADAPz/DAAAAAAAAAAEAPz/DAAAAAAAAAAFAPz/DAAAAAAAAAAGAPz/DAAAAAAAAAAHAPz/DAAAAAAAAAAIAPz/DAAAAAAAAAAJAPz/DAAAAAAAAAAKAPz/DAAAAAAAAAALAPz/DAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAPz/DAAAAAAAAAAAAPz/DAAAAAAAAAD///z/DAAAAAAAAAD+//z/DAAAAAAAAAD9//z/CwAAAAAAAAD0//r/DAAAAAAAAAD1//r/DAAAAAAAAAD2//r/DAAAAAAAAAD3//r/DAAAAAAAAAACAPz/DAAAAAAAAAADAPz/DAAAAAAAAAAEAPz/DAAAAAAAAAAFAPz/DAAAAAAAAAAGAPz/DAAAAAAAAAAHAPz/DAAAAAAAAAAIAPz/DAAAAAAAAAAJAPz/DAAAAAAAAAAKAPz/DAAAAAAAAAALAPz/DAAAAAAAAAA=")
 tile_set = SubResource("TileSet_n7a0n")
 metadata/magnetic = false
 
 [node name="black_hole" parent="." instance=ExtResource("19_slcu2")]
-position = Vector2(503, -532)
+position = Vector2(147, -536)
 
 [node name="timer_clock" parent="." instance=ExtResource("21_wbbk4")]
 position = Vector2(-578, -331)
@@ -193,37 +193,49 @@ position = Vector2(155, 27)
 position = Vector2(155, 27)
 
 [node name="metal_block3" parent="." instance=ExtResource("23_w6q4o")]
-position = Vector2(155, 27)
+position = Vector2(153, -31)
 
 [node name="metal_block4" parent="." instance=ExtResource("23_w6q4o")]
-position = Vector2(155, 27)
+position = Vector2(154, -71)
 
 [node name="metal_block5" parent="." instance=ExtResource("23_w6q4o")]
-position = Vector2(155, 27)
+position = Vector2(155, -109)
 
 [node name="magnetic_box" parent="." instance=ExtResource("23_payvq")]
 position = Vector2(59, 28)
 
-[node name="magnetic_box2" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -198)
-
-[node name="magnetic_box3" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -164)
-
-[node name="magnetic_box4" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -132)
-
-[node name="magnetic_box5" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -99)
-
-[node name="magnetic_box6" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -68)
-
-[node name="magnetic_box7" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -35)
-
-[node name="magnetic_box8" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, -5)
-
 [node name="magnetic_box9" parent="." instance=ExtResource("23_payvq")]
-position = Vector2(307, 28)
+position = Vector2(411, 14)
+
+[node name="magnetic_box11" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -18)
+
+[node name="magnetic_box12" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -50)
+
+[node name="magnetic_box13" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -82)
+
+[node name="magnetic_box14" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -114)
+
+[node name="magnetic_box15" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -146)
+
+[node name="magnetic_box16" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -178)
+
+[node name="magnetic_box17" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -210)
+
+[node name="magnetic_box18" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -242)
+
+[node name="magnetic_box19" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -274)
+
+[node name="magnetic_box20" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, -306)
+
+[node name="magnetic_box10" parent="." instance=ExtResource("23_payvq")]
+position = Vector2(411, 46)

@@ -8,7 +8,7 @@
 rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mod33"]
-size = Vector2(34, 32)
+size = Vector2(33, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
 size = Vector2(58, 36.5)
@@ -22,12 +22,13 @@ can_sleep = false
 script = ExtResource("1_gf17v")
 
 [node name="ObjCrate002" type="Sprite2D" parent="."]
-position = Vector2(1.54972e-06, 2.38419e-07)
-scale = Vector2(0.425, 0.533333)
+position = Vector2(0.500002, 2.38419e-07)
+scale = Vector2(0.4125, 0.533333)
 texture = ExtResource("2_ojqme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 3
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_mod33")
 
 [node name="pick_up_timer" type="Timer" parent="."]

@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://b4sdovntaehk1" path="res://raw_images/level_1_tiles/Tile (5).png" id="1_45hxv"]
 [ext_resource type="Script" path="res://magnetic_box.gd" id="1_516ri"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jx6ap"]
-radius = 91.0055
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1udr"]
 size = Vector2(257, 257)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jx6ap"]
+radius = 74.2159
 
 [node name="magnetic_box" type="Node2D"]
 use_parent_material = true
@@ -17,17 +17,15 @@ script = ExtResource("1_516ri")
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_45hxv")
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-0.5, 0.5)
+scale = Vector2(0.125, 0.125)
+shape = SubResource("RectangleShape2D_m1udr")
+
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 14
 
 [node name="magnetic_field" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_jx6ap")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-disable_mode = 1
-collision_mask = 15
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2(0.125, 0.125)
-shape = SubResource("RectangleShape2D_m1udr")
