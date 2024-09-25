@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://b0tneqxef57ju"]
+[gd_scene load_steps=44 format=4 uid="uid://b0tneqxef57ju"]
 
 [ext_resource type="Script" path="res://levels/level_how_to_play.gd" id="1_8ps3s"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_wwcqd"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="18_h20no"]
 [ext_resource type="Texture2D" uid="uid://bpvvkrgkie6j2" path="res://raw_images/level_1_tiles/KeySample.png" id="19_npfrp"]
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="21_55iib"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_ob2ad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_wwcqd")
@@ -374,14 +375,24 @@ offset_right = 114.0
 offset_bottom = 132.0
 text = "Pick up/Throw"
 
-[node name="back" type="Button" parent="."]
-offset_left = -171.0
-offset_top = -260.0
-offset_right = -14.0
-offset_bottom = -229.0
-text = "Back to Main Menu"
-
 [node name="throw_object" parent="." instance=ExtResource("21_55iib")]
 position = Vector2(99, -17)
 
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
+text = "Back to Menu"
+script = ExtResource("22_ob2ad")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

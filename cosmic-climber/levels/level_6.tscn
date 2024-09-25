@@ -144,6 +144,9 @@ rendering_quadrant_size = 128
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, -65534, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -3, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -262142, 0, 0, -327678, 0, 0, -393214, 0, 0, -458750, 0, 0, -458751, 0, 0, -458752, 0, 0, -393217, 0, 0, -393218, 0, 0, -393219, 0, 0, -327683, 0, 0, -262147, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -327679, 0, 0, -327680, 0, 0, -262145, 0, 0, -262146, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0)
 
+[node name="black_hole" parent="." instance=ExtResource("19_slcu2")]
+position = Vector2(-332, 270)
+
 [node name="player" parent="." instance=ExtResource("2_r2qgv")]
 z_index = 5
 
@@ -174,9 +177,6 @@ scale = Vector2(0.125, 0.125)
 tile_map_data = PackedByteArray("AAABAPz/DAAAAAAAAAAAAPz/DAAAAAAAAAD///z/DAAAAAAAAAD+//z/DAAAAAAAAAD9//z/CwAAAAAAAAD0//r/DAAAAAAAAAD1//r/DAAAAAAAAAD2//r/DAAAAAAAAAD3//r/DAAAAAAAAAACAPz/DAAAAAAAAAADAPz/DAAAAAAAAAAEAPz/DAAAAAAAAAAFAPz/DAAAAAAAAAAGAPz/DAAAAAAAAAAHAPz/DAAAAAAAAAAIAPz/DAAAAAAAAAAJAPz/DAAAAAAAAAAKAPz/DAAAAAAAAAALAPz/DAAAAAAAAAA=")
 tile_set = SubResource("TileSet_n7a0n")
 metadata/magnetic = false
-
-[node name="black_hole" parent="." instance=ExtResource("19_slcu2")]
-position = Vector2(147, -536)
 
 [node name="throw_object" parent="." instance=ExtResource("22_hnqrw")]
 position = Vector2(-307, -38)
