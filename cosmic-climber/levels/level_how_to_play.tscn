@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b0tneqxef57ju"]
+[gd_scene load_steps=46 format=4 uid="uid://b0tneqxef57ju"]
 
 [ext_resource type="Script" path="res://levels/level_how_to_play.gd" id="1_8ps3s"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_wwcqd"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://bpvvkrgkie6j2" path="res://raw_images/level_1_tiles/KeySample.png" id="19_npfrp"]
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="21_55iib"]
 [ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_ob2ad"]
+[ext_resource type="PackedScene" uid="uid://dimdii4wel247" path="res://magnetic_box.tscn" id="23_c7uvl"]
+[ext_resource type="PackedScene" uid="uid://qepaua4dg5jc" path="res://throw_box_metal_1.tscn" id="24_1nkfu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_wwcqd")
@@ -377,6 +379,24 @@ text = "Pick up/Throw"
 
 [node name="throw_object" parent="." instance=ExtResource("21_55iib")]
 position = Vector2(99, -17)
+
+[node name="magnetic_box9" parent="." instance=ExtResource("23_c7uvl")]
+position = Vector2(27, -288)
+
+[node name="magnetic_box" parent="." instance=ExtResource("23_c7uvl")]
+position = Vector2(210, -177)
+
+[node name="metal_box_1" parent="." instance=ExtResource("24_1nkfu")]
+position = Vector2(172, -350)
+
+[node name="metal_box_2" parent="." instance=ExtResource("24_1nkfu")]
+position = Vector2(-172, -146)
+
+[node name="metal_box_3" parent="." instance=ExtResource("24_1nkfu")]
+position = Vector2(-20, -486)
+
+[node name="metal_box_4" parent="." instance=ExtResource("24_1nkfu")]
+position = Vector2(74, -489)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 offset = Vector2(-450, -240)

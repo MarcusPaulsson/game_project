@@ -136,7 +136,7 @@ sources/12 = SubResource("TileSetAtlasSource_ty8q5")
 sources/13 = SubResource("TileSetAtlasSource_alcfa")
 sources/14 = SubResource("TileSetAtlasSource_pxcc1")
 
-[node name="level_2" type="Node2D"]
+[node name="level_6" type="Node2D"]
 
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")

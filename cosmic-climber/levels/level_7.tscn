@@ -15,7 +15,7 @@ sources/0 = SubResource("TileSetAtlasSource_s5gao")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0fjek"]
 
-[node name="level_2" type="Node2D"]
+[node name="level_7" type="Node2D"]
 
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")

@@ -16,7 +16,7 @@ size = Vector2(58, 35.25)
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
-mass = 0.011
+mass = 0.005
 physics_material_override = SubResource("PhysicsMaterial_18r3m")
 can_sleep = false
 script = ExtResource("1_gf17v")

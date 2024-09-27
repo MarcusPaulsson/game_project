@@ -14,7 +14,7 @@ var current_global_speed: float = 0.0
 
 
 var current_dir = 1 # 1 for right, -1 for left
-@onready var boxpick_ref = $Marker2D # Reference to the object (boxpick_ref)
+@onready var boxpick_ref = $Marker2D 
 @onready var sprite = $AnimatedSprite2D
 @onready var jump_sound_1 = $jump1
 @onready var jump_sound_2 = $jump2
@@ -38,8 +38,7 @@ func _physics_process(delta: float) -> void:
 		num_jumps = 0
 		if abs(current_global_speed) > 10:
 			sprite.animation = "running"
-		# Scale the speed between a minimum and maximum value
-		# Normalize the speed to a range suitable for the animation
+		
 		# 300 is the current max speed
 		var speed_factor = clamp(abs(velocity.x) / 299, 0.3, 10.0)
 		sprite.speed_scale = speed_factor
@@ -75,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		# Flip the sprite horizontally based on the direction
 		sprite.flip_h = direction < 0
 		current_dir = direction
-		boxpick_ref.position.x = 9 + direction * 5
+		boxpick_ref.position.x = direction * 8
 	else:
 		# Decelerate with an exponential curve toward 0
 		current_speed_x = lerp(current_speed_x, 0.0, delta / deceleration_time)
@@ -83,5 +82,4 @@ func _physics_process(delta: float) -> void:
 	# Apply the calculated horizontal speed to velocity
 	velocity.x = current_speed_x
 	
-	# Move and slide
 	move_and_slide()

@@ -64,8 +64,6 @@ func load_profiles_and_print_leaderboard() -> void:
 func _sort_by_level_count(a, b) -> int:
 	return int(b["level_count"]) - int(a["level_count"])
 
-
-
 # Entry function to initiate the recursive sorting process
 func sort_my_profiles(profile_list):
 	if profile_list.size() == 0:

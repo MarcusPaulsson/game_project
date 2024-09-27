@@ -138,7 +138,7 @@ animations = [{
 size = Vector2(20, 50)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(-6, -24)
+position = Vector2(0, -25)
 collision_layer = 2
 slide_on_ceiling = false
 floor_constant_speed = true
@@ -147,13 +147,13 @@ script = ExtResource("1_v8kyp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(8, -8)
+position = Vector2(0, -7)
 scale = Vector2(0.193542, 0.213333)
 sprite_frames = SubResource("SpriteFrames_32xvr")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -4)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ncks5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
