@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 	self.gravity_scale = 1.0
 	if picked:
 		# Make the item follow the player's position
-		self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir * 28, 10)
+		self.rotation_degrees = 0.0
+		self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir * 19, 10)
 		# Disable the collision shape when picked up
 		collision_shape.disabled = true
 	else:
@@ -43,7 +44,7 @@ func _input(event):
 			
 			var player = get_node("../player")
 			var player_velocity = player.velocity  # Assuming player has a velocity property
-			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * 28, 10)
+			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * 19, 10)
 			
 			# Set initial throw direction based on player's facing direction
 			var throw_direction = player_velocity * 1.5  # Default throw vector

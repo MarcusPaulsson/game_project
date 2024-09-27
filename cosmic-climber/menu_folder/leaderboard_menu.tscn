@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4kshpg1cfgh7"]
+[gd_scene load_steps=4 format=3 uid="uid://d4kshpg1cfgh7"]
 
 [ext_resource type="Script" path="res://menu_folder/leaderboard_menu.gd" id="1_m6c61"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_bnmhi"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="3_ex4th"]
 
 [node name="leaderboard Menu" type="Control"]
 z_index = 1
@@ -47,5 +48,6 @@ size_flags_stretch_ratio = 0.0
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+script = ExtResource("3_ex4th")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_pressed"]

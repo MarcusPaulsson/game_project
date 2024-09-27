@@ -3,8 +3,8 @@ extends Control
 var GAME_STARTED = false
 
 # Debug variables
-var DEBUG = true
-var DEBUG_level = 6
+var DEBUG = false
+var DEBUG_level = 1
 
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene
 @onready var name_input = $AcceptDialog/LineEdit  # The input field inside the dialog for entering the name
