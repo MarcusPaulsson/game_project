@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://ch6hrkrh7cejg"]
+[gd_scene load_steps=36 format=4 uid="uid://ch6hrkrh7cejg"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_plxx5"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_fitwa"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="16_00lvd"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="16_44dvb"]
 [ext_resource type="PackedScene" uid="uid://cnk67cgxem6r2" path="res://throw_box_wood_2.tscn" id="18_4bfbs"]
+[ext_resource type="Texture2D" uid="uid://ctl7wow0yojko" path="res://raw_images/assets/hud_box.png" id="19_a2jfy"]
 [ext_resource type="Script" path="res://levels/back_to_menu.gd" id="19_s5dva"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
@@ -268,5 +269,11 @@ offset_right = 1030.67
 offset_bottom = 581.16
 text = "Back to Menu"
 script = ExtResource("19_s5dva")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/back"]
+z_index = -1
+position = Vector2(57.0021, 16.002)
+scale = Vector2(0.0507769, 0.0160769)
+texture = ExtResource("19_a2jfy")
 
 [connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

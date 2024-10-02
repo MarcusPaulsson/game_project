@@ -68,12 +68,14 @@ text = "Quit Game"
 
 [node name="title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 428.0
-offset_top = 190.0
-offset_right = 749.0
-offset_bottom = 273.0
+offset_left = 365.0
+offset_top = 176.0
+offset_right = 703.0
+offset_bottom = 259.0
+rotation = 6.28319
+scale = Vector2(1.3, 1.3)
 theme_override_fonts/font = ExtResource("3_nb7jm")
-text = "COMSIC CLIMBER"
+text = "COSMIC CLIMBER"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -81,18 +83,31 @@ stream = ExtResource("3_fujh8")
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 mode = 1
-title = "New Game"
-initial_position = 3
+title = ""
+position = Vector2i(451, 274)
 size = Vector2i(250, 100)
-current_screen = 0
 visible = true
+popup_window = true
+extend_to_title = true
+theme_override_constants/buttons_separation = 11
 ok_button_text = "START!"
+dialog_hide_on_ok = false
+dialog_autowrap = true
 
 [node name="LineEdit" type="LineEdit" parent="AcceptDialog"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 242.0
-offset_bottom = 51.0
+offset_bottom = 50.0
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/caret_width = 0
+theme_override_constants/minimum_character_width = 0
 theme_override_fonts/font = ExtResource("3_nb7jm")
 placeholder_text = "Insert name..."
 alignment = 1

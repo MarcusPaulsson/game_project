@@ -11,7 +11,7 @@ rough = true
 size = Vector2(34, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
-size = Vector2(58, 67.25)
+size = Vector2(58, 69.25)
 
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
@@ -21,21 +21,21 @@ physics_material_override = SubResource("PhysicsMaterial_18r3m")
 can_sleep = false
 script = ExtResource("1_nmcoc")
 
-[node name="ObjCrate003" type="Sprite2D" parent="."]
-position = Vector2(1.35525e-20, -32)
+[node name="ObjCrate002" type="Sprite2D" parent="."]
+position = Vector2(2.71051e-20, -32)
 scale = Vector2(0.425, 0.533333)
 texture = ExtResource("2_iyeda")
 
-[node name="ObjCrate002" type="Sprite2D" parent="."]
-position = Vector2(2.27374e-13, -13)
-scale = Vector2(0.425, 0.533333)
+[node name="ObjCrate005" type="Sprite2D" parent="ObjCrate002"]
+position = Vector2(5.34998e-13, 35.625)
+scale = Vector2(1, 1)
 texture = ExtResource("2_iyeda")
 region_enabled = true
 region_rect = Rect2(0, 9, 80, 37)
 
-[node name="ObjCrate004" type="Sprite2D" parent="."]
-position = Vector2(4.81482e-35, 3)
-scale = Vector2(0.425, 0.533333)
+[node name="ObjCrate004" type="Sprite2D" parent="ObjCrate002/ObjCrate005"]
+position = Vector2(-5.34998e-13, 30)
+scale = Vector2(1, 1)
 texture = ExtResource("2_iyeda")
 region_enabled = true
 region_rect = Rect2(0, 11, 80, 49)
@@ -51,7 +51,7 @@ shape = SubResource("RectangleShape2D_mod33")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
-position = Vector2(-1, -17.375)
+position = Vector2(-1, -18.375)
 shape = SubResource("RectangleShape2D_kycw1")
 
 [node name="pick_up_box" type="AudioStreamPlayer" parent="."]

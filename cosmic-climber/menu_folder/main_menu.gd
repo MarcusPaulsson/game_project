@@ -4,18 +4,23 @@ var GAME_STARTED = false
 
 # Debug variables
 var DEBUG = false
-var DEBUG_level = 2
+var DEBUG_level = 6
 
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene
 @onready var name_input = $AcceptDialog/LineEdit  # The input field inside the dialog for entering the name
 var config = load("res://read_write_config.gd").new()
 var profiles_config = ConfigFile.new()
+var font_file = FontFile.new()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if DEBUG:
 		get_tree().change_scene_to_file("res://levels/level_"+str(DEBUG_level)+".tscn")
 	var err = profiles_config.load("user://config_folder/profiles.cfg")
 	name_dialog["visible"] = false
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

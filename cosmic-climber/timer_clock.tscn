@@ -1,27 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://lp4oxhvxlktn"]
+[gd_scene load_steps=4 format=3 uid="uid://lp4oxhvxlktn"]
 
 [ext_resource type="Script" path="res://timer.gd" id="1_ekwv5"]
-[ext_resource type="Texture2D" uid="uid://2xwtcqs5kbem" path="res://raw_images/boxes/obj_box005.png" id="2_etj3a"]
+[ext_resource type="Texture2D" uid="uid://ctl7wow0yojko" path="res://raw_images/assets/hud_box.png" id="2_05o70"]
+[ext_resource type="FontFile" uid="uid://bijxkn1g1xcqu" path="res://raw_font/magnetar.ttf" id="3_6whx8"]
 
 [node name="timer_clock" type="Node2D"]
 script = ExtResource("1_ekwv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(105, 45)
-scale = Vector2(2.15625, 0.9375)
-texture = ExtResource("2_etj3a")
+position = Vector2(66, 26)
+scale = Vector2(0.0509033, 0.0198653)
+texture = ExtResource("2_05o70")
 
 [node name="TextEdit" type="TextEdit" parent="Sprite2D"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -23.0
-offset_top = -3.0
-offset_right = -69.0
-offset_bottom = -64.0
+offset_left = -1038.93
+offset_top = -854.651
+offset_right = -5136.93
+offset_bottom = -3917.65
 grow_horizontal = 2
 grow_vertical = 2
-text = "00:00"
+scale = Vector2(1.00238, 4.31897)
+theme_override_fonts/font = ExtResource("3_6whx8")
+theme_override_font_sizes/font_size = 230
+text = "00:00:0"
+placeholder_text = "00:00:0"
 
 [connection signal="draw" from="Sprite2D/TextEdit" to="." method="_on_text_edit_draw"]
 [connection signal="text_set" from="Sprite2D/TextEdit" to="." method="_on_text_edit_text_set"]

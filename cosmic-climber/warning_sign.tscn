@@ -5,7 +5,8 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_565by"]
 
 [node name="Area2D" type="Area2D"]
-position = Vector2(-45, -231)
+position = Vector2(-52, -267)
+scale = Vector2(1.29286, 1.1551)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.00784314, 0, 0, 1)

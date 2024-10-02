@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dimdii4wel247"]
+[gd_scene load_steps=7 format=3 uid="uid://dimdii4wel247"]
 
 [ext_resource type="Texture2D" uid="uid://b4sdovntaehk1" path="res://raw_images/level_1_tiles/Tile (5).png" id="1_45hxv"]
 [ext_resource type="Script" path="res://magnetic_box.gd" id="1_516ri"]
 [ext_resource type="Texture2D" uid="uid://bc4l3ng00n3n6" path="res://raw_images/assets/pngimg.com - magnet_PNG103233.png" id="3_fohuq"]
+[ext_resource type="AudioStream" uid="uid://bik3m1p2qyftl" path="res://raw_sounds/magnets-crackling-together-39906.mp3" id="4_qj4cj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jx6ap"]
 radius = 91.0055
@@ -38,3 +39,6 @@ freeze = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2(0.125, 0.125)
 shape = SubResource("RectangleShape2D_m1udr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qj4cj")

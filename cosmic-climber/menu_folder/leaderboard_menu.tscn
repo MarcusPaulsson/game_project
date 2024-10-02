@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4kshpg1cfgh7"]
+[gd_scene load_steps=5 format=3 uid="uid://d4kshpg1cfgh7"]
 
 [ext_resource type="Script" path="res://menu_folder/leaderboard_menu.gd" id="1_m6c61"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_bnmhi"]
+[ext_resource type="FontFile" uid="uid://bijxkn1g1xcqu" path="res://raw_font/magnetar.ttf" id="3_ei0ux"]
 [ext_resource type="Script" path="res://levels/back_to_menu.gd" id="3_ex4th"]
 
 [node name="leaderboard Menu" type="Control"]
@@ -27,18 +28,19 @@ offset = Vector2(1, 0)
 [node name="title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 497.0
-offset_top = 198.0
+offset_top = 150.0
 offset_right = 703.0
-offset_bottom = 221.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_ei0ux")
 text = "Leaderboard"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 389.0
-offset_top = 235.0
+offset_top = 190.0
 offset_right = 802.0
-offset_bottom = 336.0
+offset_bottom = 291.0
 theme_type_variation = &"hgh"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -47,6 +49,7 @@ size_flags_stretch_ratio = 0.0
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ei0ux")
 text = "Back"
 script = ExtResource("3_ex4th")
 

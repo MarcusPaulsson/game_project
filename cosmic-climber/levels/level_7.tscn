@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c00ny42t01mu6"]
+[gd_scene load_steps=10 format=3 uid="uid://c00ny42t01mu6"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_xxr5w"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_ujrvb"]
 [ext_resource type="PackedScene" uid="uid://byuh4usrn1v1f" path="res://death_area.tscn" id="3_job4k"]
+[ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="4_xvl7q"]
+[ext_resource type="Script" path="res://levels/back_to_menu.gd" id="5_3llqx"]
+[ext_resource type="Texture2D" uid="uid://ctl7wow0yojko" path="res://raw_images/assets/hud_box.png" id="6_p28ml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_xxr5w")
@@ -46,3 +49,31 @@ position = Vector2(2, 420)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
 position = Vector2(-2, 2)
 shape = SubResource("WorldBoundaryShape2D_0fjek")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(-450, -240)
+transform = Transform2D(1, 0, 0, 1, -450, -240)
+
+[node name="timer_clock" parent="HUD" instance=ExtResource("4_xvl7q")]
+position = Vector2(446, 237)
+
+[node name="back" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_left = -0.506
+anchor_top = -0.539
+anchor_right = 0.489
+anchor_bottom = 0.455
+offset_left = 2062.91
+offset_top = 1194.27
+offset_right = 1030.67
+offset_bottom = 581.16
+text = "Back to Menu"
+script = ExtResource("5_3llqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/back"]
+z_index = -1
+position = Vector2(57.0021, 16.002)
+scale = Vector2(0.0507769, 0.0160769)
+texture = ExtResource("6_p28ml")
+
+[connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

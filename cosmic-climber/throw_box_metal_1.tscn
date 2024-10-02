@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://qepaua4dg5jc"]
 
 [ext_resource type="Script" path="res://throw_box.gd" id="1_gf17v"]
-[ext_resource type="Texture2D" uid="uid://djys7qxow2phj" path="res://raw_images/assets/block1.svg" id="2_ojqme"]
+[ext_resource type="Texture2D" uid="uid://dlw3dftt2rtq3" path="res://raw_images/assets/block3.svg" id="2_i1ya4"]
 [ext_resource type="AudioStream" uid="uid://3drb6mi2a05x" path="res://raw_sounds/item_pick_up.mp3" id="3_gqf54"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18r3m"]
@@ -24,7 +24,7 @@ script = ExtResource("1_gf17v")
 [node name="ObjCrate002" type="Sprite2D" parent="."]
 position = Vector2(0.500002, 2.38419e-07)
 scale = Vector2(0.4125, 0.533333)
-texture = ExtResource("2_ojqme")
+texture = ExtResource("2_i1ya4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 3

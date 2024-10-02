@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3pimrct6iwbl"]
+[gd_scene load_steps=4 format=3 uid="uid://d3pimrct6iwbl"]
 
 [ext_resource type="Script" path="res://menu_folder/settings_menu.gd" id="1_drhjs"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_sfx74"]
+[ext_resource type="FontFile" uid="uid://bijxkn1g1xcqu" path="res://raw_font/magnetar.ttf" id="3_ewmx8"]
 
 [node name="Settings Menu" type="Control"]
 z_index = 1
@@ -29,6 +30,7 @@ offset_left = 497.0
 offset_top = 198.0
 offset_right = 703.0
 offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("3_ewmx8")
 text = "Settings"
 horizontal_alignment = 1
 
@@ -43,13 +45,15 @@ offset_bottom = 336.0
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ewmx8")
+text = "Back"
+
 [node name="Volume on" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume ON"
+icon_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Back"
-
-[connection signal="toggled" from="MarginContainer/VBoxContainer/Volume on" to="." method="_on_volume_on_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Volume on" to="." method="_on_volume_on_toggled"]
