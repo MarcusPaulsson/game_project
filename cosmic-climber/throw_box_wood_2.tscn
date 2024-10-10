@@ -28,14 +28,12 @@ texture = ExtResource("2_iyeda")
 
 [node name="ObjCrate005" type="Sprite2D" parent="ObjCrate002"]
 position = Vector2(5.34998e-13, 35.625)
-scale = Vector2(1, 1)
 texture = ExtResource("2_iyeda")
 region_enabled = true
 region_rect = Rect2(0, 9, 80, 37)
 
 [node name="ObjCrate004" type="Sprite2D" parent="ObjCrate002/ObjCrate005"]
 position = Vector2(-5.34998e-13, 30)
-scale = Vector2(1, 1)
 texture = ExtResource("2_iyeda")
 region_enabled = true
 region_rect = Rect2(0, 11, 80, 49)
