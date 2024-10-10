@@ -14,9 +14,9 @@ var previous_global_position: Vector2
 var current_global_speed: float = 0.0
 var current_dir: int = 1 # 1 for right, -1 for left
 
-var still_time: float = 1.0 # Time to stay still at the start
+var still_time: float = 0.4 # Time to stay still at the start
 var first_run_time: float = 1.0 # Time for running in seconds
-var stop_time: float = 0.8 # Time for stopping in seconds
+var stop_time: float = 0.0 # Time for stopping in seconds
 var second_run_time: float = 0.7 # Time for second running in seconds
 var jump_air_time: float = 0.6 # Time to keep moving while in the air after jumping
 var first_jump_time: float = 0.7 # Time to trigger the first jump
@@ -80,36 +80,41 @@ func _physics_process(delta: float) -> void:
 			else:
 				current_speed_x = 0 # Stop after the air time
 				is_second_jump = true # Move to the second jump sequence
-
+				is_second_jump_done = true
+	if is_second_jump_done and is_on_floor():
+			current_speed_x = 0 # Remain still for the rest of the time after landing
+			sprite.animation = "idle"
+			is_final_stage = true # Transition to final stage
+			current_speed_x = -SPEED
+			current_speed_x = 0
+			current_dir = -1
+			
 	# Second Jump Sequence (keeping the same structure):
-	if is_second_jump and not is_second_jump_done:
-		# Stand still for 1 second before the second jump
-		if total_time <= still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time:
-			current_speed_x = 0 # Stand still before second double jump
-		# Perform the first jump while moving right
-		elif total_time <= still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time and jump_count == 2:
-			current_speed_x = SPEED # Move right while performing first jump of second sequence
-			velocity.y = JUMP_VELOCITY
-			jump_sound_1.play()  # Play first jump sound of second double jump
-			jump_count += 1 # Increment for the second double jump
-		# Perform the second jump while moving right
-		elif total_time > still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time and jump_count == 3 and total_time < still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time + second_jump_time:
-			current_speed_x = SPEED # Keep moving right while performing second jump of second sequence
-			velocity.y = JUMP_VELOCITY
-			jump_sound_2.play()  # Play second jump sound of second double jump
-			jump_count += 1 # Increment after second jump
-		# Move right in the air for 0.4 seconds and then stop
-		elif total_time < still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time + second_jump_air_time:
-			current_speed_x = SPEED # Continue moving right after second double jump
-		else:
-			current_speed_x = 0 # Stop after air time
-			is_second_jump_done = true # Transition to final idle stage
+	#if is_second_jump and not is_second_jump_done:
+		## Stand still for 1 second before the second jump
+		#if total_time <= still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time:
+			#current_speed_x = 0 # Stand still before second double jump
+		## Perform the first jump while moving right
+		#elif total_time <= still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time and jump_count == 2:
+			#current_speed_x = SPEED # Move right while performing first jump of second sequence
+			#velocity.y = JUMP_VELOCITY
+			#jump_sound_1.play()  # Play first jump sound of second double jump
+			#jump_count += 1 # Increment for the second double jump
+		## Perform the second jump while moving right
+		#elif total_time > still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time and jump_count == 3 and total_time < still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time + second_jump_time:
+			#current_speed_x = SPEED # Keep moving right while performing second jump of second sequence
+			#velocity.y = JUMP_VELOCITY
+			#jump_sound_2.play()  # Play second jump sound of second double jump
+			#jump_count += 1 # Increment after second jump
+		## Move right in the air for 0.4 seconds and then stop
+		#elif total_time < still_time + first_run_time + stop_time + second_run_time + jump_air_time + second_still_time + first_jump_time + second_jump_air_time:
+			#current_speed_x = SPEED # Continue moving right after second double jump
+		#else:
+			#current_speed_x = 0 # Stop after air time
+			#is_second_jump_done = true # Transition to final idle stage
 
 	# Final Stage: Stand completely still, but only after landing
-	if is_second_jump_done and is_on_floor():
-		current_speed_x = 0 # Remain still for the rest of the time after landing
-		sprite.animation = "idle"
-		is_final_stage = true # Transition to final stage
+	
 
 	# Calculate the distance vector between the previous and current positions
 	var position_diff = self.global_position - previous_global_position

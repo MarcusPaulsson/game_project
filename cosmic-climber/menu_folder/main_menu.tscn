@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cast1jxvgp6jk"]
+[gd_scene load_steps=39 format=4 uid="uid://cast1jxvgp6jk"]
 
 [ext_resource type="Script" path="res://menu_folder/main_menu.gd" id="1_aoq3h"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_yhdtb"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dvg46ytvh1fy8" path="res://raw_images/level_1_tiles/Tile (8).png" id="17_kowkp"]
 [ext_resource type="Texture2D" uid="uid://bkm7fnrdv62sa" path="res://raw_images/level_1_tiles/Tile (9).png" id="18_tun4h"]
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="19_fwi27"]
+[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="22_yxckp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wj0sx"]
 texture = ExtResource("5_giw4q")
@@ -231,7 +232,7 @@ alignment = 1
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(536, 707)
 scale = Vector2(0.125, 0.125)
-tile_map_data = PackedByteArray("AAABAPz/DAAAAAAAAAAAAPz/DAAAAAAAAAD///z/DAAAAAAAAAD+//z/DAAAAAAAAAD9//z/CwAAAAAAAAACAPz/DAAAAAAAAAADAPz/DAAAAAAAAAAEAPz/DAAAAAAAAAAFAPz/DAAAAAAAAAAGAPz/DAAAAAAAAAAHAPz/DAAAAAAAAAAIAPz/DAAAAAAAAAAJAPz/DAAAAAAAAAAKAPz/DAAAAAAAAAALAPz/DAAAAAAAAAD8//z/DAAAAAAAAAD7//z/DAAAAAAAAAD6//z/DAAAAAAAAAD5//z/DAAAAAAAAAD4//z/DAAAAAAAAAD3//z/DAAAAAAAAAD2//z/DAAAAAAAAAD1//z/DAAAAAAAAAALAPj/DAAAAAAAAAAMAPj/DAAAAAAAAAANAPj/DAAAAAAAAAANAPP/DAAAAAAAAAAOAPP/DAAAAAAAAAAPAPP/DAAAAAAAAAAQAPP/DAAAAAAAAAAHAO//DAAAAAAAAAAGAO//DAAAAAAAAAAFAO//DAAAAAAAAAAEAO//DAAAAAAAAAADAO//DAAAAAAAAAACAO//DAAAAAAAAAABAO//DAAAAAAAAAAAAO//DAAAAAAAAAD//+//DAAAAAAAAAD+/+//DAAAAAAAAAD9/+//DAAAAAAAAAD8/+//DAAAAAAAAAD7/+//DAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAPz/DAAAAAAAAAAAAPz/DAAAAAAAAAD///z/DAAAAAAAAAD+//z/DAAAAAAAAAD9//z/CwAAAAAAAAACAPz/DAAAAAAAAAADAPz/DAAAAAAAAAAEAPz/DAAAAAAAAAAFAPz/DAAAAAAAAAAGAPz/DAAAAAAAAAAHAPz/DAAAAAAAAAAIAPz/DAAAAAAAAAAJAPz/DAAAAAAAAAAKAPz/DAAAAAAAAAALAPz/DAAAAAAAAAD8//z/DAAAAAAAAAD7//z/DAAAAAAAAAD6//z/DAAAAAAAAAD5//z/DAAAAAAAAAD4//z/DAAAAAAAAAD3//z/DAAAAAAAAAD2//z/DAAAAAAAAAD1//z/DAAAAAAAAAALAPn/DAAAAAAAAAAMAPn/DAAAAAAAAAANAPn/DAAAAAAAAAA=")
 tile_set = SubResource("TileSet_071ot")
 metadata/magnetic = false
 
@@ -240,6 +241,11 @@ z_index = 1
 position = Vector2(217, 556)
 script = ExtResource("6_dw18a")
 
+[node name="FadeInTimer" type="Timer" parent="."]
+
+[node name="throw_object" parent="." instance=ExtResource("22_yxckp")]
+position = Vector2(920, 468)
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/load game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
@@ -247,3 +253,4 @@ script = ExtResource("6_dw18a")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
+[connection signal="timeout" from="FadeInTimer" to="." method="_on_fade_in_timer_timeout"]
