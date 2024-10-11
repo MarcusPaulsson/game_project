@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cast1jxvgp6jk"]
+[gd_scene load_steps=42 format=4 uid="uid://cast1jxvgp6jk"]
 
 [ext_resource type="Script" path="res://menu_folder/main_menu.gd" id="1_aoq3h"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_yhdtb"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://bkm7fnrdv62sa" path="res://raw_images/level_1_tiles/Tile (9).png" id="18_tun4h"]
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="19_fwi27"]
 [ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="22_yxckp"]
+[ext_resource type="PackedScene" uid="uid://chfijqdo814cw" path="res://menu_folder/load_menu.tscn" id="23_gd5eq"]
+[ext_resource type="PackedScene" uid="uid://d3pimrct6iwbl" path="res://menu_folder/settings_menu.tscn" id="24_yjs16"]
+[ext_resource type="PackedScene" uid="uid://d4kshpg1cfgh7" path="res://menu_folder/leaderboard_menu.tscn" id="25_daou7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wj0sx"]
 texture = ExtResource("5_giw4q")
@@ -198,6 +201,7 @@ horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fujh8")
+volume_db = -80.0
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 mode = 1
@@ -245,6 +249,21 @@ script = ExtResource("6_dw18a")
 
 [node name="throw_object" parent="." instance=ExtResource("22_yxckp")]
 position = Vector2(920, 468)
+
+[node name="main_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fujh8")
+
+[node name="load menu" parent="." instance=ExtResource("23_gd5eq")]
+visible = false
+layout_mode = 1
+
+[node name="Settings Menu" parent="." instance=ExtResource("24_yjs16")]
+visible = false
+layout_mode = 1
+
+[node name="leaderboard Menu" parent="." instance=ExtResource("25_daou7")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/load game" to="." method="_on_load_game_pressed"]

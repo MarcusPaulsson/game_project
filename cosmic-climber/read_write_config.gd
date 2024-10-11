@@ -12,14 +12,15 @@ func load_local_data():
 	var total_time_played = global_config.get_value("local", "total_time_played")
 	var sound_volume = global_config.get_value("local", "sound_volume")
 	var high_score = global_config.get_value("local", "high_score")
-	
+	var Volume_on = global_config.get_value("local", "volume_ON")
 	# Use these variables throughout the game
 	print("Current Level:", current_player)
 	print("Total Time Played:", total_time_played)
 	print("Sound Volume:", sound_volume)
 	print("High Score:", high_score)
+	print("Volume_ON:", Volume_on)
 	# Store them in your game's global state if needed
-	return [current_player, total_time_played, sound_volume, high_score]
+	return [current_player, total_time_played, sound_volume, high_score, Volume_on]
 
 # Function to save global variables to the .cfg file
 func save_local_data(current_player: String, total_time_played: int, sound_volume: float, high_score: int):
@@ -32,6 +33,7 @@ func save_local_data(current_player: String, total_time_played: int, sound_volum
 		global_config.set_value("local", "sound_volume", sound_volume)
 	if high_score>=0:
 		global_config.set_value("local", "high_score", high_score)
+	
 	
 	# Save the config file
 	var err = global_config.save("res://local_config/local.cfg")

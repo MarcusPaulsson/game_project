@@ -10,6 +10,7 @@ var profiles_config = ConfigFile.new()
 var current_profile
 var current_level = ""
 var level_number = ""
+var planet_time = 4.0
 
 @onready var timer_reference = $"../HUD/timer_clock"
 
@@ -38,8 +39,15 @@ func _process(delta: float) -> void:
 		body_to_rotate.modulate.a = clamp(new_alpha, 0, 1)  # Ensure alpha stays between 0 (fully transparent) and 1 (fully opaque)
 		# After rotating for the set time, change the scene
 		var level_string = "res://levels/level_"+str(level_number+1)+".tscn"
+		print(level_string)
 		if rotation_timer >= rotation_time:
-			get_tree().change_scene_to_file(level_string)
+			if level_string == "res://levels/level_8.tscn": # Final level +1 !!!!
+				if rotation_timer >= planet_time:
+					# CREATE SMALL CUT SCENE AND THEN BACK TO MAIN MENU
+					get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")
+			
+			else:
+				get_tree().change_scene_to_file(level_string)
 
 # Function to update and save the player's level progress with time spent
 func update_player_level_progress(profile: String, level: int, time_spent: float) -> void:

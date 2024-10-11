@@ -4,21 +4,33 @@ var GAME_STARTED = false
 
 # Debug variables
 var DEBUG = false
-var DEBUG_level = 7
+var DEBUG_level = 15
 
 # Keep track so that intro is only run on game start-up
 var intro_play
+
+# Sound
+@onready var main_music_player = $main_music
+
+
 
 @onready var menu_container = $MarginContainer
 @onready var name_dialog = $AcceptDialog  # Assuming NameDialog is a WindowDialog or AcceptDialog in the scene
 @onready var name_input = $AcceptDialog/LineEdit  # The input field inside the dialog for entering the name
 @onready var fade_in_timer = $FadeInTimer  # Reference to the Timer node
 
+
+# Sub menus 
+@onready var load_menu = $"load menu"
+@onready var settings_menu = $"Settings Menu"
+@onready var leaderboard_menu = $"leaderboard Menu"
+
 @onready var box = $throw_object
 
 
-var config = load("res://read_write_config.gd").new()
+var config
 var profiles_config = ConfigFile.new()
+var content
 
 var fade_started = false
 var fade_duration = 1.0  # Duration of the fade effect in seconds
@@ -26,7 +38,16 @@ var fade_time_passed = 0.0  # Time accumulator for the fade-in
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	config = load("res://read_write_config.gd").new()
+	var music_on = config.load_local_data()[4]
+	print(music_on)
+	if music_on:
+		main_music_player.play()
+		main_music_player.autoplay = true
+		main_music_player.volume_db = -15
+		db_to_linear(main_music_player.volume_db) 
+		
+		
 	intro_play = config.read_intro_run()
 	box.can_pulse = false
 	if DEBUG:
@@ -35,6 +56,7 @@ func _ready() -> void:
 	# Initially hide the menu_container
 	menu_container.visible = false
 	menu_container.modulate.a = 0  # Set initial transparency to 0
+	
 	if intro_play:
 		fade_in_timer.start(3.0)  # Timer set for 5 seconds
 	else:
@@ -111,19 +133,23 @@ func _on_start_game_pressed() -> void:
 # Function triggered when the 'Load Game' button is pressed
 func _on_load_game_pressed() -> void:
 	GAME_STARTED = true
-	get_tree().change_scene_to_file("res://menu_folder/load_menu.tscn")
+	#get_tree().change_scene_to_file("res://menu_folder/load_menu.tscn")
+	load_menu.visible = true
+	
 	config.set_intro_run(false)
 	print("Pressed load game")
 
 # Function triggered when the 'Leaderboard' button is pressed
 func _on_leaderboard_pressed() -> void:
 	config.set_intro_run(false)
-	get_tree().change_scene_to_file("res://menu_folder/leaderboard_menu.tscn")
+	leaderboard_menu.visible = true
+	#get_tree().change_scene_to_file("res://menu_folder/leaderboard_menu.tscn")
 
 # Function triggered when the 'Settings' button is pressed
 func _on_settings_pressed() -> void:
 	config.set_intro_run(false)
-	get_tree().change_scene_to_file("res://menu_folder/settings_menu.tscn")
+	settings_menu.visible = true
+	#get_tree().change_scene_to_file("res://menu_folder/settings_menu.tscn")
 	print("Pressed Setting")
 
 # Function triggered when the 'How to Play' button is pressed
@@ -177,6 +203,8 @@ func update_player_level_progress(profile: String, level: String, time_spent: fl
 		print("Error saving profiles config file!")
 	else:
 		print("Profile updated or created successfully.")
+
+
 
 
 

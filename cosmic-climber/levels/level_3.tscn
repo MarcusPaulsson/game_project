@@ -205,10 +205,10 @@ anchor_left = -0.506
 anchor_top = -0.539
 anchor_right = 0.489
 anchor_bottom = 0.455
-offset_left = 2645.82
-offset_top = 1543.54
-offset_right = 1613.58
-offset_bottom = 930.432
+offset_left = 2055.91
+offset_top = 1198.27
+offset_right = 1023.67
+offset_bottom = 585.164
 text = "Back to Menu"
 script = ExtResource("22_18apx")
 

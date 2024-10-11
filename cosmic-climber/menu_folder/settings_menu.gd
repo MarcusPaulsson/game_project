@@ -1,7 +1,7 @@
 extends Control
 @onready var volume_toggle = $"MarginContainer/VBoxContainer/Volume on"
 var config = ConfigFile.new()
-
+@onready var volume_controller = $"../AudioStreamPlayer"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Load the configuration file
@@ -25,12 +25,19 @@ func _on_volume_on_toggled(toggled_on: bool) -> void:
 	# Save the configuration to the file
 	var save_err = config.save("res://local_config/local.cfg")
 	
+	
 	if save_err == OK:
 		var volume_ON = config.get_value("local", "volume_ON")
+		if !volume_ON:
+			volume_controller.stop()
+		else:
+			volume_controller.play()
+			volume_controller.autoplay = true
 		print("Volume toggled:", volume_ON)
 	else:
 		print("Error saving config file: ", save_err)
 
 # Function to handle button press
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")
+	visible = false
+	#get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")

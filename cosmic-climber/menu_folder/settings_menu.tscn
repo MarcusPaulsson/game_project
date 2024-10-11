@@ -52,7 +52,8 @@ text = "Back"
 
 [node name="Volume on" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume ON"
+theme_override_fonts/font = ExtResource("3_ewmx8")
+text = "Music"
 icon_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k40bj73pvoij"]
 
 [ext_resource type="Texture2D" uid="uid://bv5a2k8pyu71a" path="res://raw_images/assets/warning.png" id="1_pec6k"]
-[ext_resource type="Texture2D" uid="uid://d1shwitc251br" path="res://raw_images/earth.png" id="2_durcy"]
+[ext_resource type="Texture2D" uid="uid://d1shwitc251br" path="res://raw_images/assets/earth.png" id="2_durcy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_565by"]
 

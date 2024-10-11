@@ -57,4 +57,5 @@ func _on_menu_button_pressed(profile_level: int, profile_profile: String) -> voi
 
 # Function that is called when the back button is pressed
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")
+	visible = false
+	#get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")

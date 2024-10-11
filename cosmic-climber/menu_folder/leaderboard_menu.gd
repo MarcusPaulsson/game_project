@@ -105,4 +105,5 @@ func _recursive_sort(profile_list):
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")
+	visible = false
+	#get_tree().change_scene_to_file("res://menu_folder/main_menu.tscn")
