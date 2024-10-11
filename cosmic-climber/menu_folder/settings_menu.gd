@@ -5,7 +5,7 @@ var config = ConfigFile.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Load the configuration file
-	var err = config.load("user://config_folder/local.cfg")
+	var err = config.load("res://local_config/local.cfg")
 	
 	if err == OK:
 		# Read the 'volume_ON' value from the 'local' section or default to false if not found
@@ -23,7 +23,7 @@ func _on_volume_on_toggled(toggled_on: bool) -> void:
 	config.set_value("local", "volume_ON", toggled_on)
 	
 	# Save the configuration to the file
-	var save_err = config.save("user://config_folder/local.cfg")
+	var save_err = config.save("res://local_config/local.cfg")
 	
 	if save_err == OK:
 		var volume_ON = config.get_value("local", "volume_ON")

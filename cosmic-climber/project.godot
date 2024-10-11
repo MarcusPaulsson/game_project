@@ -15,6 +15,11 @@ run/main_scene="res://menu_folder/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/initial_position_type=3
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="Cosmic Climber"
