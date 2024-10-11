@@ -11,7 +11,7 @@ rough = true
 size = Vector2(33, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
-size = Vector2(58, 35.25)
+size = Vector2(58, 43)
 
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_mod33")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
-position = Vector2(-1, -2.625)
+position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_kycw1")
 
 [node name="pick_up_box" type="AudioStreamPlayer" parent="."]
