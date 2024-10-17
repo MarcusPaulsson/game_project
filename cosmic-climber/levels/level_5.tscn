@@ -138,7 +138,7 @@ sources/12 = SubResource("TileSetAtlasSource_l3m1n")
 sources/13 = SubResource("TileSetAtlasSource_gtkmp")
 sources/14 = SubResource("TileSetAtlasSource_ch61i")
 
-[node name="level_6" type="Node2D"]
+[node name="level_5" type="Node2D"]
 
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")
@@ -147,7 +147,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, -65534, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -3, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -262142, 0, 0, -327678, 0, 0, -393214, 0, 0, -458750, 0, 0, -458751, 0, 0, -458752, 0, 0, -393217, 0, 0, -393218, 0, 0, -393219, 0, 0, -327683, 0, 0, -262147, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -327679, 0, 0, -327680, 0, 0, -262145, 0, 0, -262146, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0)
 
 [node name="black_hole" parent="." instance=ExtResource("20_0x2fy")]
-position = Vector2(-332, 270)
+position = Vector2(662, -408)
 
 [node name="player" parent="." instance=ExtResource("2_r141m")]
 z_index = 5
@@ -187,22 +187,16 @@ position = Vector2(-307, -38)
 position = Vector2(-353, -38)
 
 [node name="metal_block" parent="." instance=ExtResource("21_05cax")]
-position = Vector2(155, 27)
+position = Vector2(259, -3)
 
 [node name="metal_block2" parent="." instance=ExtResource("21_05cax")]
-position = Vector2(155, 27)
-
-[node name="metal_block3" parent="." instance=ExtResource("21_05cax")]
-position = Vector2(153, -31)
-
-[node name="metal_block4" parent="." instance=ExtResource("21_05cax")]
-position = Vector2(154, -71)
+position = Vector2(53, 30)
 
 [node name="metal_block5" parent="." instance=ExtResource("21_05cax")]
-position = Vector2(155, -109)
+position = Vector2(259, 29)
 
 [node name="magnetic_box" parent="." instance=ExtResource("22_fvxpb")]
-position = Vector2(59, 28)
+position = Vector2(156, 29)
 
 [node name="magnetic_box9" parent="." instance=ExtResource("22_fvxpb")]
 position = Vector2(411, 14)

@@ -8,7 +8,7 @@ var previous_objects_in_gravity_field = []
 var played_audio_for_objects = [] # Track objects that have already triggered audio
 
 # Attraction strength factor (adjustable for stronger or weaker pull)
-var attraction_strength = 24000.0
+var attraction_strength = 18000.0
 # Maximum velocity cap
 var max_velocity = 500.0
 # Threshold to consider the object "close enough" to the magnet
@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 				# Play the audio for new metal objects entering the field
 				if object not in played_audio_for_objects:
 					audio.play()
+					audio.volume_db = -15
 					played_audio_for_objects.append(object)
 					# Schedule to stop the audio after 1 second
 					await get_tree().create_timer(0.7).timeout # cut so that unwanted sound isnt playing...
