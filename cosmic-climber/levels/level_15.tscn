@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bi08gjlarphcb"]
+[gd_scene load_steps=44 format=4 uid="uid://bi08gjlarphcb"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_nppw7"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_75bi0"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="21_6ogr2"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="22_yp11f"]
 [ext_resource type="Texture2D" uid="uid://bc7wykt7j52o7" path="res://raw_images/assets/planet01.png" id="23_dx8mk"]
+[ext_resource type="PackedScene" uid="uid://dxtpbllhn8jnl" path="res://sound_node.tscn" id="24_ikyj8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_nppw7")
@@ -135,7 +136,7 @@ sources/12 = SubResource("TileSetAtlasSource_xkhpw")
 sources/13 = SubResource("TileSetAtlasSource_clmha")
 sources/14 = SubResource("TileSetAtlasSource_6qm5b")
 
-[node name="level_7" type="Node2D"]
+[node name="level_15" type="Node2D"]
 
 [node name="Background_image" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lhlat")
@@ -209,5 +210,7 @@ scale = Vector2(5.40364, 5.63038)
 position = Vector2(-87, -1720)
 scale = Vector2(0.397083, 0.386662)
 texture = ExtResource("23_dx8mk")
+
+[node name="sound_node" parent="." instance=ExtResource("24_ikyj8")]
 
 [connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

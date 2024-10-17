@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://b0tneqxef57ju"]
+[gd_scene load_steps=48 format=4 uid="uid://b0tneqxef57ju"]
 
 [ext_resource type="Script" path="res://levels/level_how_to_play.gd" id="1_8ps3s"]
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_wwcqd"]
@@ -24,6 +24,8 @@
 [ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_ob2ad"]
 [ext_resource type="PackedScene" uid="uid://dimdii4wel247" path="res://magnetic_box.tscn" id="23_c7uvl"]
 [ext_resource type="PackedScene" uid="uid://qepaua4dg5jc" path="res://throw_box_metal_1.tscn" id="24_1nkfu"]
+[ext_resource type="PackedScene" uid="uid://lp4oxhvxlktn" path="res://timer_clock.tscn" id="24_prg8r"]
+[ext_resource type="Texture2D" uid="uid://ctl7wow0yojko" path="res://raw_images/assets/hud_box.png" id="26_75ojl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_wwcqd")
@@ -402,6 +404,9 @@ position = Vector2(74, -489)
 offset = Vector2(-450, -240)
 transform = Transform2D(1, 0, 0, 1, -450, -240)
 
+[node name="timer_clock" parent="HUD" instance=ExtResource("24_prg8r")]
+position = Vector2(446, 237)
+
 [node name="back" type="Button" parent="HUD"]
 anchors_preset = -1
 anchor_left = -0.506
@@ -414,5 +419,11 @@ offset_right = 1030.67
 offset_bottom = 581.16
 text = "Back to Menu"
 script = ExtResource("22_ob2ad")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/back"]
+z_index = -1
+position = Vector2(57.0021, 16.002)
+scale = Vector2(0.0507769, 0.0160769)
+texture = ExtResource("26_75ojl")
 
 [connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

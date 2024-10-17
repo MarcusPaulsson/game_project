@@ -13,12 +13,7 @@ func load_local_data():
 	var sound_volume = global_config.get_value("local", "sound_volume")
 	var high_score = global_config.get_value("local", "high_score")
 	var Volume_on = global_config.get_value("local", "volume_ON")
-	# Use these variables throughout the game
-	print("Current Level:", current_player)
-	print("Total Time Played:", total_time_played)
-	print("Sound Volume:", sound_volume)
-	print("High Score:", high_score)
-	print("Volume_ON:", Volume_on)
+	
 	# Store them in your game's global state if needed
 	return [current_player, total_time_played, sound_volume, high_score, Volume_on]
 

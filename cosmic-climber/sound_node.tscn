@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtpbllhn8jnl"]
+
+[ext_resource type="Script" path="res://sound_node.gd" id="1_ynpae"]
+[ext_resource type="AudioStream" uid="uid://dov5ti3032j2h" path="res://raw_sounds/astronaut-child-in-space-17141.mp3" id="2_d8gwu"]
+
+[node name="sound_node" type="Node2D"]
+script = ExtResource("1_ynpae")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d8gwu")

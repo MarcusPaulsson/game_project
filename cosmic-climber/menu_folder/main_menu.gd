@@ -4,7 +4,7 @@ var GAME_STARTED = false
 
 # Debug variables
 var DEBUG = false
-var DEBUG_level = 15
+var DEBUG_level = 16
 
 # Keep track so that intro is only run on game start-up
 var intro_play
@@ -31,7 +31,7 @@ var intro_play
 var config
 var profiles_config = ConfigFile.new()
 var content
-
+var music_on
 var fade_started = false
 var fade_duration = 1.0  # Duration of the fade effect in seconds
 var fade_time_passed = 0.0  # Time accumulator for the fade-in
@@ -39,13 +39,14 @@ var fade_time_passed = 0.0  # Time accumulator for the fade-in
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	config = load("res://read_write_config.gd").new()
-	var music_on = config.load_local_data()[4]
-	print(music_on)
+	music_on = config.load_local_data()[4]
+
+
 	if music_on:
 		main_music_player.play()
 		main_music_player.autoplay = true
 		main_music_player.volume_db = -15
-		db_to_linear(main_music_player.volume_db) 
+	
 		
 		
 	intro_play = config.read_intro_run()
@@ -88,11 +89,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Start fading in if fade has started
-
+	music_on = config.load_local_data()[4]
 	if fade_started and intro_play:
 		_fade_in(delta)
 	if Input.is_action_just_pressed("ui_cancel"):  # Optional: you can add a keyboard shortcut for quitting
 			print("close")
+	
+	
+	if music_on:
+		main_music_player.volume_db = -15
+	else:
+		main_music_player.volume_db = -80
+		
 
 
 	

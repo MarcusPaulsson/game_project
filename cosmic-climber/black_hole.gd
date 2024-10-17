@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 		body_to_rotate.modulate.a = clamp(new_alpha, 0, 1)  # Ensure alpha stays between 0 (fully transparent) and 1 (fully opaque)
 		# After rotating for the set time, change the scene
 		var level_string = "res://levels/level_"+str(level_number+1)+".tscn"
-		print(level_string)
+
 		if rotation_timer >= rotation_time:
 			if level_string == "res://levels/level_8.tscn": # Final level +1 !!!!
 				if rotation_timer >= planet_time:

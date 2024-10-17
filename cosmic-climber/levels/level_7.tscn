@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://c00ny42t01mu6"]
+[gd_scene load_steps=43 format=4 uid="uid://dgkutb0232nmc"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_xxr5w"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_ujrvb"]
@@ -22,9 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bkm7fnrdv62sa" path="res://raw_images/level_1_tiles/Tile (9).png" id="20_oirqw"]
 [ext_resource type="Texture2D" uid="uid://bx4he2ppqvj5g" path="res://raw_images/level_1_tiles/Tile (10).png" id="21_kjw5n"]
 [ext_resource type="PackedScene" uid="uid://w3lyhi1luigw" path="res://black_hole.tscn" id="22_6xo1g"]
-[ext_resource type="PackedScene" uid="uid://dimdii4wel247" path="res://magnetic_box.tscn" id="23_3gtj3"]
-[ext_resource type="PackedScene" uid="uid://qepaua4dg5jc" path="res://throw_box_metal_1.tscn" id="24_sub05"]
-[ext_resource type="PackedScene" uid="uid://b6n6l11sn3aqi" path="res://throw_box_wood_1.tscn" id="25_h1ble"]
+[ext_resource type="PackedScene" uid="uid://dxtpbllhn8jnl" path="res://sound_node.tscn" id="26_rs0u8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_xxr5w")
@@ -205,19 +203,6 @@ metadata/magnetic = false
 [node name="black_hole" parent="." instance=ExtResource("22_6xo1g")]
 position = Vector2(387, -558)
 
-[node name="magnetic_box" parent="." instance=ExtResource("23_3gtj3")]
-position = Vector2(188, -101)
-
-[node name="metal_block1" parent="." instance=ExtResource("24_sub05")]
-position = Vector2(-66, 28)
-
-[node name="throw_object2" parent="." instance=ExtResource("25_h1ble")]
-position = Vector2(-66, -5)
-
-[node name="throw_object4" parent="." instance=ExtResource("25_h1ble")]
-position = Vector2(-66, -73)
-
-[node name="throw_object3" parent="." instance=ExtResource("25_h1ble")]
-position = Vector2(-66, -39)
+[node name="sound_node" parent="." instance=ExtResource("26_rs0u8")]
 
 [connection signal="pressed" from="HUD/back" to="HUD/back" method="_on_pressed"]

@@ -10,8 +10,7 @@ func _ready() -> void:
 	if err == OK:
 		# Read the 'volume_ON' value from the 'local' section or default to false if not found
 		volume_toggle.button_pressed = config.get_value("local", "volume_ON", false)
-	else:
-		print("Error loading config file: ", err)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -30,12 +29,11 @@ func _on_volume_on_toggled(toggled_on: bool) -> void:
 		var volume_ON = config.get_value("local", "volume_ON")
 		if !volume_ON:
 			volume_controller.stop()
+			
 		else:
 			volume_controller.play()
 			volume_controller.autoplay = true
-		print("Volume toggled:", volume_ON)
-	else:
-		print("Error saving config file: ", save_err)
+			
 
 # Function to handle button press
 func _on_button_pressed() -> void:

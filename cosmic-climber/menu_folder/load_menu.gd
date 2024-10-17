@@ -8,7 +8,6 @@ func _ready() -> void:
 	
 	# Check if the file was loaded correctly
 	if err != OK:
-		print("Error loading config file")
 		return
 	
 	# Get the profiles section
@@ -19,20 +18,24 @@ func _ready() -> void:
 		# Get the profile data
 		var profile_data = profiles_config.get_value("profiles", profile)
 		var profile_name = profile_data["name"]
+		
 		# Get the last level the player has completed
 		var levels_data = profile_data.get("levels", {})
 		var last_level = _get_last_level(levels_data) 
 		
-		# Create a new MenuButton for the profile
-		var menu_button = MenuButton.new()
-		menu_button.text = profile_name + " - Current Level: " + str(last_level)  # Add last level to the button text
+		# Create a new Button for the profile
+		var profile_button = Button.new()
+		
+		# Consistently format the text using String.format()
+		var button_text = "%s: Current Level %d" % [profile_name, last_level]
+		profile_button.text = button_text  # Set the formatted text
 		
 		# Connect the pressed signal using a lambda to pass the last_level
-		
-		menu_button.connect("pressed", Callable(self, "_on_menu_button_pressed").bind(last_level, profile))
+		profile_button.connect("pressed", Callable(self, "_on_menu_button_pressed").bind(last_level, profile))
 
-		# Add the MenuButton to the container
-		container.add_child(menu_button)
+		# Add the Button to the container
+		container.add_child(profile_button)
+
 
 # Function to get the last completed level by the player
 func _get_last_level(levels_data: Dictionary) -> int:
@@ -41,8 +44,6 @@ func _get_last_level(levels_data: Dictionary) -> int:
 		return 1  # Default to level 1 if no levels found
 	levels_keys.sort()  # Sort levels based on their keys
 	var last_level_key = levels_keys.back()  # Get the last key (e.g., "level_3")
-	print("here")
-	print(last_level_key)
 	var last_level_num = int(last_level_key.split("_")[1])  # Extract the level number
 	
 	return last_level_num

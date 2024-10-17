@@ -9,7 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":  # Only the player should trigger the timer
 		print("restart")
 		death_sound.play()
-		death_sound.volume_db = -1  # Adjust volume as needed
+		death_sound.volume_db = -15  # Adjust volume as needed
 		body_to_reset = body  # Store the reference to the player
 		timer.start()  # Start the timer (no arguments needed)
 		
@@ -26,7 +26,6 @@ func _on_timer_timeout() -> void:
 	if body_to_reset != null:
 		# Reset the player position when the timer finishes
 		body_to_reset.position = Vector2(0, 0)  # Reset to (0,0) or another desired position
-		print("Position reset to:", body_to_reset.position)
 		body_to_reset = null  # Clear the reference after resetting
 
 func _on_timer_child_entered_tree(node: Node) -> void:

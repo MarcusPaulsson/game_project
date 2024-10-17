@@ -14,7 +14,6 @@ func load_profiles_and_print_leaderboard() -> void:
 	
 	# Check if the file was loaded correctly
 	if err != OK:
-		print("Error loading profiles file: ", err)
 		return
 		
 	# Get the profiles section

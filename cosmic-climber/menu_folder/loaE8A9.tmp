@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://chfijqdo814cw"]
+
+[ext_resource type="Script" path="res://menu_folder/load_menu.gd" id="1_85dni"]
+[ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="2_y2wi1"]
+[ext_resource type="FontFile" uid="uid://bijxkn1g1xcqu" path="res://raw_font/magnetar.ttf" id="3_us0wi"]
+
+[node name="Start Menu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85dni")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(511, 512)
+texture = ExtResource("2_y2wi1")
+offset = Vector2(1, 0)
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(1535, 512)
+texture = ExtResource("2_y2wi1")
+offset = Vector2(1, 0)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 154.0
+offset_right = 723.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("3_us0wi")
+text = "LOAD GAME"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 190.0
+offset_right = 702.0
+offset_bottom = 291.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_us0wi")
+text = "back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
