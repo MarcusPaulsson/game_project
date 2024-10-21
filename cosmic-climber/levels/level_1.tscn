@@ -188,7 +188,7 @@ scale = Vector2(1.29286, 1.27714)
 position = Vector2(799, -662)
 
 [node name="throw_object6" parent="." instance=ExtResource("23_3nvg0")]
-position = Vector2(-163, -17)
+position = Vector2(375, -116)
 
 [node name="throw_object4" parent="." instance=ExtResource("23_3nvg0")]
 position = Vector2(392, -81)

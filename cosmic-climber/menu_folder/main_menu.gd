@@ -3,8 +3,8 @@ extends Control
 var GAME_STARTED = false
 
 # Debug variables
-var DEBUG = false
-var DEBUG_level = 16
+var DEBUG = true
+var DEBUG_level = 7
 
 # Keep track so that intro is only run on game start-up
 var intro_play
