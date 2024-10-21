@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -380.0
 var num_jumps = 0
 const MULTI_JUMP = 2 # Allow a maximum of 1 jumps (double jump)
 var sound_on = true

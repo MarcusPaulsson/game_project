@@ -251,6 +251,7 @@ script = ExtResource("6_dw18a")
 position = Vector2(920, 468)
 
 [node name="main_music" type="AudioStreamPlayer2D" parent="."]
+visible = false
 stream = ExtResource("3_fujh8")
 
 [node name="load menu" parent="." instance=ExtResource("23_gd5eq")]
