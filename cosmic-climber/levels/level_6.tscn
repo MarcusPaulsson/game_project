@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://c00ny42t01mu6"]
+[gd_scene load_steps=47 format=4 uid="uid://c00ny42t01mu6"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_nq86p"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_r2qgv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgdkmudidyueq" path="res://raw_images/level_1_tiles/Tile (1).png" id="4_s2igi"]
 [ext_resource type="Texture2D" uid="uid://dial0uqftrlbb" path="res://raw_images/level_1_tiles/Tile (2).png" id="5_mxbex"]
 [ext_resource type="Texture2D" uid="uid://qiubbmheqcgt" path="res://raw_images/level_1_tiles/Tile (11).png" id="6_45g8u"]
+[ext_resource type="PackedScene" uid="uid://omsshlsi1fwo" path="res://fading_keys.tscn" id="7_ayuk1"]
 [ext_resource type="Texture2D" uid="uid://cmgkcn8t4fday" path="res://raw_images/level_1_tiles/Tile (12).png" id="7_cu6tc"]
 [ext_resource type="Texture2D" uid="uid://boxas3h2s24t5" path="res://raw_images/level_1_tiles/Tile (13).png" id="8_3486q"]
 [ext_resource type="Texture2D" uid="uid://bno2qlf0mvpp2" path="res://raw_images/level_1_tiles/Tile (14).png" id="9_nba45"]
@@ -195,6 +196,9 @@ z_index = -1
 position = Vector2(57.0021, 16.002)
 scale = Vector2(0.0507769, 0.0160769)
 texture = ExtResource("25_ywjgr")
+
+[node name="fading_keys" parent="HUD" instance=ExtResource("7_ayuk1")]
+position = Vector2(970, 662)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(11, 173)

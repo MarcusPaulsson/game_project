@@ -139,7 +139,7 @@ position = Vector2(0, -25)
 collision_layer = 2
 slide_on_ceiling = false
 floor_constant_speed = true
-safe_margin = 0.001
+safe_margin = 0.5
 script = ExtResource("1_v8kyp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

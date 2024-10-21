@@ -18,6 +18,8 @@ var initial_position
 var initial_color  # To store the initial color of the object
 var used_cells 
 var distance = INF
+@onready var coll_area = $Area2D
+@onready var player = $"../player"  # Reference to the player
 
 func _ready() -> void:
 	# Get reference to the collision shape node
@@ -33,7 +35,7 @@ func _process(delta: float) -> void:
 	if picked:
 		# Make the item follow the player's position
 		self.rotation_degrees = 0.0
-		self.position = get_node("../player/Marker2D").global_position + Vector2(get_node("../player").current_dir * -2, -22)
+		self.position = player.get_node("Marker2D").global_position + Vector2(player.current_dir * 19, -15)
 		# Disable the collision shape when picked up
 		collision_shape.disabled = true
 		# Stop pulsing once picked
@@ -66,14 +68,18 @@ func _fade_box(delta: float) -> void:
 	box_type.modulate = modulate_color
 
 func _input(event):
-	# Drop item if currently holding it
-	if Input.is_action_just_pressed("ui_pick_or_throw"):
+	# Drop item if currently holding it, but only if the player can process box interaction
+	if Input.is_action_just_pressed("ui_pick_or_throw") and player.can_process_box_interaction:
+		player.can_process_box_interaction = false  # Block further interaction for a short time
+		player.reset_box_interaction_timeout()  # Call the player's method to reset the timeout
+		
+		var bodies = $pick_up_area.get_overlapping_bodies()
+		var box_over_laps = coll_area.get_overlapping_bodies()
 		
 		# Check if the player is holding an item
-		if picked and not get_node("../player").canPick:
-			var player = get_node("../player")
+		if picked and not player.canPick and box_over_laps.size() == 0:
 			var player_velocity = player.velocity  # Assuming player has a velocity property
-			self.position = get_node("../player/Marker2D").global_position + Vector2(player.current_dir * -2, -22)
+			self.position = player.get_node("Marker2D").global_position + Vector2(player.current_dir * 19, -15)
 			
 			# Set initial throw direction based on player's facing direction
 			var throw_direction = player_velocity * 1.5  # Default throw vector
@@ -83,17 +89,17 @@ func _input(event):
 			player.canPick = true
 			picked = false  # Release the item
 			return
-			
+		
 		else:
+			player.can_process_box_interaction = true
 			# Check if the player can pick up an item
-			var bodies = $pick_up_area.get_overlapping_bodies()
 			for body in bodies:
-				if body.name == "player" and get_node("../player").canPick:
+				if body.name == "player" and player.canPick:
 					picked = true
 					self.rotation_degrees = 0
 					pick_up_box_sound.play()
-					get_node("../player").canPick = false
+					player.canPick = false
 					# Stop pulsing permanently once picked up
 					can_pulse = false
 					box_type.modulate = initial_color  # Reset color to the original
-					break
+					return

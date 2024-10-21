@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnk67cgxem6r2"]
+[gd_scene load_steps=8 format=3 uid="uid://cnk67cgxem6r2"]
 
 [ext_resource type="Script" path="res://throw_box.gd" id="1_nmcoc"]
 [ext_resource type="Texture2D" uid="uid://d3e6r76vyfecg" path="res://raw_images/assets/block2.svg" id="2_iyeda"]
@@ -12,6 +12,9 @@ size = Vector2(34, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kycw1"]
 size = Vector2(58, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npjsn"]
+size = Vector2(12, 45)
 
 [node name="throw_object" type="RigidBody2D"]
 collision_layer = 3
@@ -54,6 +57,12 @@ shape = SubResource("RectangleShape2D_kycw1")
 
 [node name="pick_up_box" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2xerh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_npjsn")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="pick_up_timer" to="." method="_on_pick_up_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://defc5x8xoc143"]
+[gd_scene load_steps=47 format=4 uid="uid://defc5x8xoc143"]
 
 [ext_resource type="Texture2D" uid="uid://cr00hkcqxfhha" path="res://raw_images/backgrounds/backgroundSpace_01.1.png" id="1_qfaco"]
 [ext_resource type="PackedScene" uid="uid://1c0d3qsn1ngu" path="res://player.tscn" id="2_r141m"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://levels/back_to_menu.gd" id="22_ugych"]
 [ext_resource type="Texture2D" uid="uid://ctl7wow0yojko" path="res://raw_images/assets/hud_box.png" id="23_7jins"]
 [ext_resource type="PackedScene" uid="uid://dxtpbllhn8jnl" path="res://sound_node.tscn" id="24_l7t57"]
+[ext_resource type="PackedScene" uid="uid://omsshlsi1fwo" path="res://fading_keys.tscn" id="26_0idwa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5gao"]
 texture = ExtResource("1_qfaco")
@@ -259,6 +260,9 @@ z_index = -1
 position = Vector2(57.0021, 16.002)
 scale = Vector2(0.0507769, 0.0160769)
 texture = ExtResource("23_7jins")
+
+[node name="fading_keys" parent="HUD" instance=ExtResource("26_0idwa")]
+position = Vector2(970, 662)
 
 [node name="sound_node" parent="." instance=ExtResource("24_l7t57")]
 

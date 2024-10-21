@@ -180,7 +180,7 @@ texture_region_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_l5wj0")
 
 [node name="fading_keys" type="Node2D"]
-z_index = 2
+z_index = -1
 script = ExtResource("1_oiub1")
 
 [node name="key_clues" type="TileMapLayer" parent="."]
